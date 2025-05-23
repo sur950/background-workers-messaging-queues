@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Queues: Market & Technology Insights 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f0f4f8; /* Light Neutral BG */
+        color: #073b4c; /* Dark Slate Text */
+        display: flex;
+        flex-direction: column; /* Main flex container for header, content-wrapper */
+        min-height: 100vh; /* Ensure full viewport height */
+        overflow: hidden; /* Prevent body scroll, content-main will scroll */
+      }
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px; /* Default max-width */
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        max-height: 400px;
+      }
+      @media (min-width: 768px) {
+        .chart-container {
+          height: 350px;
+        }
+      }
+      /* General card styling already defined by Tailwind classes in HTML */
+      /* Specific color definitions for Tailwind JIT */
+      .bg-primary {
+        background-color: #118ab2;
+      }
+      .text-primary {
+        color: #118ab2;
+      }
+      .bg-secondary {
+        background-color: #06d6a0;
+      }
+      .text-secondary {
+        color: #06d6a0;
+      }
+      .bg-accent1 {
+        background-color: #ffd166;
+      }
+      .text-accent1 {
+        color: #ffd166;
+      }
+      .bg-accent2 {
+        background-color: #ff6b6b;
+      }
+      .text-accent2 {
+        color: #ff6b6b;
+      }
+      .text-neutral-dark {
+        color: #073b4c;
+      }
+
+      /* Flow chart specific styles - using Tailwind classes where possible */
+      .flow-step {
+        background-color: #ffffff;
+        border: 2px solid #118ab2; /* Primary color border */
+        color: #073b4c;
+        padding: 0.75rem 1rem;
+        border-radius: 0.375rem;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .flow-arrow {
+        font-size: 2rem;
+        color: #118ab2;
+        margin: 0 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Navigation button specific styles */
+      .nav-button.active {
+        background-color: #118ab2; /* primary */
+        color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .hidden-section {
+        display: none;
+      }
+
+      /* Main content area styling */
+      .content-area {
+        flex-grow: 1; /* Takes remaining width */
+        padding: 1rem;
+        overflow-y: auto; /* Only content area is scrollable */
+        height: calc(100vh - 80px); /* Full height below header */
+        margin-top: 80px; /* Pushed down by fixed header */
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen antialiased">
+    <header
+      class="fixed top-0 left-0 right-0 h-[80px] bg-primary text-white flex items-center px-4 z-50 shadow-lg"
+    >
+      <div class="flex items-center space-x-8">
+        <div class="flex items-center space-x-2">
+          <button
+            id="prev-section-btn"
+            class="bg-accent2 text-white py-2 px-3 rounded-md shadow-md hover:bg-accent2/80 transition-colors duration-200"
+            title="Previous Section"
+          >
+            ←
+          </button>
+          <button
+            id="next-section-btn"
+            class="bg-secondary text-white py-2 px-3 rounded-md shadow-md hover:bg-secondary/80 transition-colors duration-200"
+            title="Next Section"
+          >
+            →
+          </button>
+        </div>
+        <h1
+          class="text-xl sm:text-2xl md:text-3xl font-bold mx-auto text-center"
+        >
+          BG Workers & Messaging Quques
+        </h1>
+      </div>
+      <div class="flex items-center space-x-2 text-right ml-auto">
+        <div class="flex flex-col leading-tight">
+          <span class="text-xs text-white/80">Presented by</span>
+          <span class="text-sm sm:text-base font-semibold"
+            >Suresh Konakanchi</span
+          >
+        </div>
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D03AQG06I718pFGEw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1673073759894?e=2147483647&v=beta&t=iH8VFXAh115urDMoA9oNFVBlAEyFF73Kv7k0FQ6t0V0"
+          alt="Suresh Avatar"
+          class="rounded-full w-8 h-8 border-2 border-white shadow-sm"
+          onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=SK';"
+        />
+      </div>
+    </header>
+
+    <main
+      id="content-main"
+      class="content-area bg-[#F0F4F8] max-w-7xl mx-auto px-4"
+    >
+      <section
+        id="section-overview"
+        class="mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-2rem)] text-center"
+      >
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-1"
+        >
+          Background Workers
+        </h1>
+        <p>&</p>
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-12"
+        >
+          Messaging Queues
+        </h1>
+        <h3 class="text-xl sm:text-2xl font-semibold text-neutral-dark mb-1">
+          Suresh Konakanchi
+        </h3>
+        <h4 class="text-base sm:text-lg font-medium text-gray-500">
+          Senior Technical Consultant
+        </h4>
+
+        <img
+          src="https://geekyants.com/images/geekyants-logo.png"
+          alt="GeekyAnts Logo"
+          class="w-48 h-auto mt-4"
+          onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=GeekyAnts';"
+        />
+        <div
+          class="mt-8 bg-secondary text-white p-8 rounded-lg shadow-md max-w-md"
+        >
+          <div class="text-5xl sm:text-6xl font-bold mb-2">2025</div>
+          <p class="text-lg sm:text-xl">
+            A Pivotal Year for Asynchronous Architectures
+          </p>
+        </div>
+      </section>
+
+      <section id="section-agenda" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-6 text-center"
+        >
+          Agenda: Navigating the World of Queues
+        </h2>
+        <ul
+          class="bg-white rounded-lg shadow-md p-6 space-y-3 list-disc list-inside text-lg"
+        >
+          <li>
+            <button
+              data-section="section-what-how"
+              class="text-primary hover:underline font-semibold"
+            >
+              Understanding Background Workers & Messaging Queues
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-why-when"
+              class="text-primary hover:underline font-semibold"
+            >
+              Strategic Use Cases: When to Use
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-common-tools"
+              class="text-primary hover:underline font-semibold"
+            >
+              Common Tools & Deep Dive
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-tool-comparisons"
+              class="text-primary hover:underline font-semibold"
+            >
+              Comparative Overview
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-real-world-patterns"
+              class="text-primary hover:underline font-semibold"
+            >
+              Real-World Architectural Patterns
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-scaling-security-observability"
+              class="text-primary hover:underline font-semibold"
+            >
+              Scaling, Security, and Observability
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-live-demo"
+              class="text-primary hover:underline font-semibold"
+            >
+              Live Demonstration: BullMQ + NestJS
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-market-landscape"
+              class="text-primary hover:underline font-semibold"
+            >
+              Market Insights & Future
+            </button>
+          </li>
+        </ul>
+      </section>
+
+      <section id="section-what-how" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-6 text-center"
+        >
+          What are Background Workers & Messaging Queues?
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-primary mb-3">
+              🌐 Definition
+            </h3>
+            <ul class="list-disc list-inside space-y-2 text-base">
+              <li>
+                Allow tasks to be processed outside the main HTTP request cycle
+              </li>
+              <li>
+                Improve responsiveness and user experience under heavy load
+              </li>
+              <li>
+                Enable retry, scheduling, throttling, and offloading
+                capabilities
+              </li>
+              <li>Act as a buffer between producer and consumer systems</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-primary mb-3">
+              ⚙️ Key Components
+            </h3>
+            <ul class="list-disc list-inside space-y-2 text-base">
+              <li>
+                <strong>Producer:</strong> Enqueues tasks (e.g. frontend/backend
+                service)
+              </li>
+              <li><strong>Queue Broker:</strong> Stores and manages jobs</li>
+              <li><strong>Worker:</strong> Consumes and executes jobs</li>
+              <li>
+                <strong>DLQ:</strong> Handles failed jobs after max retries
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 bg-white rounded-lg shadow-md p-6 mb-6">
+          <h4 class="text-lg font-semibold text-primary mb-2 text-center">
+            Message Flow with Queue & DLQ
+          </h4>
+          <p class="text-center mx-auto mb-8">
+            At its core, a background queue system operates on a simple
+            <b>producer-consumer model</b>, often enhanced with mechanisms for
+            reliability and fault tolerance.
+          </p>
+          <div
+            class="flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:justify-around md:items-stretch flex-wrap text-sm md:text-base"
+          >
+            <div
+              class="flow-step w-full md:w-[15%] bg-primary/10 border-primary flex flex-col items-center"
+            >
+              <span class="font-bold">Producer</span>
+              <span class="text-xs text-gray-500">(App Service)</span>
+            </div>
+            <div class="flow-arrow hidden md:flex">→</div>
+            <div class="flow-arrow flex md:hidden self-center">↓</div>
+            <div
+              class="flow-step w-full md:w-[15%] bg-accent1/20 border-accent1 flex flex-col items-center"
+            >
+              <span class="font-bold">Message Queue</span>
+              <span class="text-xs text-gray-500">(Job Storage)</span>
+            </div>
+            <div class="flow-arrow hidden md:flex">→</div>
+            <div class="flow-arrow flex md:hidden self-center">↓</div>
+            <div
+              class="flow-step w-full md:w-[15%] bg-secondary/10 border-secondary flex flex-col items-center"
+            >
+              <span class="font-bold">Worker</span>
+              <span class="text-xs text-gray-500">(Processes Job)</span>
+            </div>
+            <div class="flow-arrow hidden md:flex">
+              <div class="flex flex-col items-center">
+                <span class="text-3xl">→</span>
+                <span class="text-xs text-gray-500">Success</span>
+              </div>
+            </div>
+            <div
+              class="flow-arrow flex md:hidden self-center text-3xl text-gray-500"
+            >
+              ↓
+            </div>
+            <div
+              class="flow-step w-full md:w-[15%] bg-gray-100 border-gray-400 flex flex-col items-center"
+            >
+              <span class="font-bold">External Service</span>
+              <span class="text-xs text-gray-500">(e.g., Email API)</span>
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center">
+              <span class="text-2xl text-accent2">↑</span>
+              <span class="text-sm text-accent2 font-semibold"
+                >Retry (N times)</span
+              >
+              <span class="text-2xl text-accent2">↓</span>
+            </div>
+            <div
+              class="flow-step bg-accent2/10 border-accent2 flex flex-col items-center"
+            >
+              <span class="font-bold">Dead Letter Queue</span>
+              <span class="text-xs text-gray-500">(Failed Jobs)</span>
+            </div>
+          </div>
+          <p class="mt-8 text-sm">
+            Messages flow from a Producer to a Queue. A Worker attempts to
+            process the job. On success, it interacts with external services. On
+            failure, it retries a set number of times. If all retries fail, the
+            job moves to a Dead Letter Queue for inspection.
+          </p>
+        </div>
+        <div class="mt-10 bg-white rounded-lg shadow-md p-6 mt-6">
+          <h4 class="text-lg font-semibold text-primary mb-8 text-center">
+            Queue Architecture Overview
+          </h4>
+          <div class="flex flex-col items-center space-y-4">
+            <div class="flow-step bg-secondary/10 border-secondary w-64">
+              <span class="font-bold">Backend App Entry</span>
+            </div>
+            <span class="text-3xl text-primary">↓</span>
+            <div class="flow-step bg-primary/10 border-primary w-64">
+              <span class="font-bold">API Controller</span>
+            </div>
+            <span class="text-3xl text-primary">↓</span>
+            <div class="flex items-center space-x-8">
+              <div class="flex flex-col items-center">
+                <div
+                  class="flow-step bg-accent1/10 border-accent1 w-48 flex flex-col items-center"
+                >
+                  <span class="font-bold">Email Service</span>
+                  <span class="text-xs text-gray-500">(Producer)</span>
+                </div>
+                <span class="text-3xl text-primary">↓</span>
+                <div class="flow-step bg-gray-100 border-gray-400 w-48">
+                  <span class="font-bold">Message Queue</span>
+                </div>
+              </div>
+              <div class="flex flex-col items-center">
+                <div
+                  class="flow-step bg-accent2/10 border-accent2 w-48 flex flex-col items-center"
+                >
+                  <span class="font-bold">Video Service</span>
+                  <span class="text-xs text-gray-500">(Producer)</span>
+                </div>
+                <span class="text-3xl text-primary">↓</span>
+                <div class="flow-step bg-gray-100 border-gray-400 w-48">
+                  <span class="font-bold">Message Queue</span>
+                </div>
+              </div>
+            </div>
+            <span class="text-3xl text-primary">↓</span>
+            <div class="flex flex-col items-center">
+              <div
+                class="flow-step bg-secondary/10 border-secondary w-64 flex flex-col items-center"
+              >
+                <span class="font-bold">Worker Pool</span>
+                <span class="text-xs text-gray-500">(Consumers)</span>
+              </div>
+              <span class="text-3xl text-primary">↓</span>
+              <div class="flow-step bg-gray-100 border-gray-400 w-64">
+                <span class="font-bold">Database / External APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold text-neutral-dark mt-10">
+            Core Concepts
+          </h3>
+          <div class="mt-4 grid md:grid-cols-3 gap-6">
+            <div
+              class="bg-white rounded-lg border border-gray-200 p-6 shadow-md"
+            >
+              <h4 class="font-bold text-primary mb-1 text-lg">
+                🔄 Retry Mechanisms
+              </h4>
+              <p class="text-sm">
+                Automatically re-attempts failed jobs to ensure eventual
+                completion, often with exponential backoff.
+              </p>
+            </div>
+            <div
+              class="bg-white rounded-lg border border-gray-200 p-6 shadow-md"
+            >
+              <h4 class="font-bold text-primary mb-1 text-lg">
+                💀 Dead Letter Queues (DLQ)
+              </h4>
+              <p class="text-sm">
+                A dedicated queue for jobs that permanently fail after all
+                retries, allowing for manual inspection.
+              </p>
+            </div>
+            <div
+              class="bg-white rounded-lg border border-gray-200 p-6 shadow-md"
+            >
+              <h4 class="font-bold text-primary mb-1 text-lg">
+                💾 Persistence
+              </h4>
+              <p class="text-sm">
+                Ensures messages/jobs are stored durably and are not lost during
+                system restarts or failures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-why-when" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-6 text-center"
+        >
+          When to Use, and When Not to Use Them
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-secondary mb-3">
+              ✅ When to Use
+            </h3>
+            <ul class="list-disc list-inside text-base space-y-2">
+              <li>
+                <strong>Asynchronous Heavy-Lifting Tasks:</strong> Offload
+                long-running operations (e.g., video encoding, complex report
+                generation).
+              </li>
+              <li>
+                <strong>Job Decoupling:</strong> Separate concerns; producers
+                don't need to know how consumers work, improving modularity.
+              </li>
+              <li>
+                <strong>Scheduled or Delayed Jobs:</strong> Execute tasks at a
+                specific time or after a delay (e.g., "send welcome email 24
+                hours after signup").
+              </li>
+              <li>
+                <strong>Load Distribution & Throttling:</strong> Distribute
+                tasks across multiple workers to handle spikes in traffic and
+                prevent system overload.
+              </li>
+              <li>
+                <strong>Reliability:</strong> Ensures tasks are eventually
+                processed, even if workers fail, thanks to persistence and
+                retries.
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-accent2 mb-3">
+              ❌ When Not To Use
+            </h3>
+            <ul class="list-disc list-inside text-base space-y-2">
+              <li>
+                <strong>When Strong Consistency is Needed:</strong> Not suitable
+                for real-time operations requiring immediate data consistency
+                (e.g., critical financial transactions where immediate feedback
+                is required).
+              </li>
+              <li>
+                <strong>When Blocking Isn't Acceptable:</strong> If the user
+                must wait for the task to complete before proceeding, a direct
+                synchronous call is better.
+              </li>
+              <li>
+                <strong>For Simple, Fast Operations:</strong> Adds unnecessary
+                complexity and overhead for trivial tasks that complete
+                instantly.
+              </li>
+              <li>
+                <strong>Over-engineering:</strong> Don't introduce queues if a
+                simpler, synchronous approach suffices for current needs.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-6 text-sm mx-auto">
+          <i>Disclaimer:</i> Choosing whether to use a queue involves balancing
+          the benefits of asynchronicity and scalability against the added
+          complexity.
+        </p>
+      </section>
+
+      <section id="section-common-tools" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Common Tools & Deep Dive
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-8">
+          The landscape of background workers and messaging queues/tools is
+          diverse, each offering unique strengths for different use cases.
+        </p>
+        <div class="common-tools-content">
+          <div
+            class="bg-primary text-white rounded-lg shadow-md p-6 mb-6 flex flex-col md:flex-row items-center md:space-x-6"
+          >
+            <div class="flex-shrink-0 mb-4 md:mb-0">
+              <img
+                src="https://bullmq.io/images/bullmq-logo.png"
+                alt="BullMQ Logo"
+                class="rounded-lg w-24 h-16"
+                onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=BullMQ';"
+              />
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-accent1 mb-2">
+                BullMQ & Redis Queues
+              </h3>
+              <p class="text-lg mb-4">
+                BullMQ, built on the speed and versatility of Redis, has emerged
+                as a leading choice for Node.js developers. It offers a rich
+                feature set for managing background jobs with remarkable
+                efficiency and ease of use.
+              </p>
+              <h4 class="text-xl font-semibold mb-2 text-white/90">
+                Key BullMQ Features:
+              </h4>
+              <ul class="list-disc list-inside space-y-1 text-base">
+                <li>Robust Persistence via Redis</li>
+                <li>Delayed and Repeatable Jobs (Cron-like scheduling)</li>
+                <li>Configurable Retries with Backoff Strategies</li>
+                <li>Job Prioritization and Concurrency Control</li>
+                <li>Comprehensive Event System</li>
+                <li>User-friendly Dashboard (Bull Board) for Monitoring</li>
+              </ul>
+              <h4 class="text-xl font-semibold mb-2 mt-4 text-white/90">
+                <i>Adding a Job with BullMQ</i>
+              </h4>
+              <pre
+                class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto"
+              ><code>
+import { InjectQueue } from '@nestjs/bull';
+import { Queue } from 'bullmq';
+
+// In your service or controller
+class MyService {
+  constructor(@InjectQueue('email') private emailQueue: Queue) {}
+
+  async sendWelcomeEmail(to: string, subject: string, text: string) {
+    await this.emailQueue.add('send-welcome-email', {
+      to,
+      subject,
+      text
+    }, {
+      attempts: 3, // Retry up to 3 times
+      backoff: {
+        type: 'exponential', // Exponential backoff
+        delay: 1000 // Start with 1 second delay
+      }
+    });
+    console.log('Email job added to queue!');
+  }
+}
+              </code></pre>
+              <h4 class="text-xl font-semibold mb-2 mt-4 text-white/90">
+                <i>Processing a Job with BullMQ</i>
+              </h4>
+              <pre
+                class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto"
+              ><code>
+import { Processor, Process } from '@nestjs/bull';
+import { Job } from 'bullmq';
+
+@Processor('email')
+class EmailProcessor {
+  @Process('send-welcome-email')
+  async handleSendWelcomeEmail(job: Job&lt;{ to: string; subject: string; text: string }&gt;) {
+    const { to, subject, text } = job.data;
+    console.log(`Processing email for ${to}: ${subject}`);
+    // Simulate email sending logic
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    if (Math.random() &lt; 0.1) { // Simulate 10% failure rate
+      throw new Error('Failed to send email!');
+    }
+    console.log(`Email sent to ${to}`);
+  }
+}
+              </code></pre>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex items-center mb-3">
+              <img
+                src="https://icons.veryicon.com/png/o/miscellaneous/2022-complete-collection-of-alibaba-cloud/alikafka-message-queue-kafka-1.png"
+                alt="Kafka Icon"
+                class="rounded-full mr-3 w-16 h-16"
+                onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=K';"
+              />
+              <h3 class="text-xl font-bold text-neutral-dark">Apache Kafka</h3>
+            </div>
+            <p class="mb-4">
+              A distributed streaming platform designed for high-throughput,
+              fault-tolerant, real-time data feeds. Ideal for event sourcing,
+              log aggregation, and real-time analytics.
+            </p>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>
+                <strong>Streaming-first:</strong> Treats data as a continuous
+                stream.
+              </li>
+              <li>
+                <strong>Append-only log:</strong> Data is immutable and
+                replayable, excellent for audit trails.
+              </li>
+              <li>
+                <strong>Partitioning & Scalability:</strong> Highly scalable
+                horizontally.
+              </li>
+              <li>
+                <strong>Consumer Groups:</strong> Parallel processing of
+                partitions.
+              </li>
+            </ul>
+            <div class="flex flex-col items-center mt-4">
+              <div class="flex items-center space-x-4 mb-2 text-sm">
+                <span class="font-bold">Producer</span>
+                <span class="text-2xl">→</span>
+                <div
+                  class="border border-gray-300 p-2 px-6 rounded-md flex flex-col items-center"
+                >
+                  <p class="font-bold mb-2">Topic</p>
+                  <div class="flex space-x-1 mb-2">
+                    <span class="w-4 h-4 bg-blue-300 rounded-full"></span>
+                    <span class="w-4 h-4 bg-blue-300 rounded-full"></span>
+                    <span class="w-4 h-4 bg-blue-300 rounded-full"></span>
+                  </div>
+                  <p class="text-xs">Partitions</p>
+                </div>
+                <span class="text-2xl">→</span>
+                <span class="font-bold">Consumer Group</span>
+              </div>
+              <p class="text-xs text-gray-600">
+                Kafka Flow: Producer writes to Topic Partitions, Consumer Groups
+                read.
+              </p>
+            </div>
+            <h4 class="text-xl font-semibold mb-2 mt-4 text-neutral-dark">
+              <i>Kafka Producer (Illustrative)</i>
+            </h4>
+            <pre
+              class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto"
+            ><code>
+// Example using 'kafkajs' library (Node.js)
+const { Kafka } = require('kafkajs');
+const kafka = new Kafka({ clientId: 'my-app', brokers: ['localhost:9092'] });
+const producer = kafka.producer();
+
+async function runProducer() {
+  await producer.connect();
+  await producer.send({
+    topic: 'my-topic',
+    messages: [{ value: 'Hello Kafka!' }],
+  });
+  await producer.disconnect();
+}
+runProducer().catch(console.error);
+            </code></pre>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="flex items-center mb-3">
+              <img
+                src="https://xitoring.com/wp-content/uploads/2024/07/rabbitmq.png"
+                alt="RabbitMQ Icon"
+                class="rounded-full mr-3 w-16 h-16"
+                onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=R';"
+              />
+              <h3 class="text-xl font-bold text-neutral-dark">RabbitMQ</h3>
+            </div>
+            <p class="mb-4">
+              A mature and robust open-source message broker that implements the
+              AMQP (Advanced Message Queuing Protocol). Known for its flexible
+              routing capabilities.
+            </p>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>
+                <strong>Robust Routing:</strong> Flexible message routing using
+                exchanges.
+              </li>
+              <li>
+                <strong>Message Durability:</strong> Messages can be persisted
+                to disk.
+              </li>
+              <li>
+                <strong>Manual Acknowledgment:</strong> Consumers explicitly
+                acknowledge message processing for reliability.
+              </li>
+              <li>
+                <strong>Enterprise Messaging:</strong> Well-suited for complex
+                enterprise integration patterns.
+              </li>
+            </ul>
+            <div class="flex flex-col items-center mt-4">
+              <div class="flex items-center space-x-4 mb-2 text-sm">
+                <span class="font-bold">Producer</span>
+                <span class="text-2xl">→</span>
+                <div
+                  class="border border-gray-300 p-2 rounded-md flex flex-col items-center"
+                >
+                  <p class="font-bold">Exchange</p>
+                  <p class="text-xs">(Direct/Topic/Fanout)</p>
+                </div>
+                <span class="text-2xl">→</span>
+                <div
+                  class="border border-gray-300 p-2 rounded-md flex flex-col items-center"
+                >
+                  <p class="font-bold">Queue</p>
+                  <p class="text-xs">(Messages)</p>
+                </div>
+                <span class="text-2xl">→</span>
+                <span class="font-bold">Consumer</span>
+              </div>
+              <p class="text-xs text-gray-600">
+                RabbitMQ Flow: Producer sends to Exchange, routed to Queue,
+                consumed.
+              </p>
+            </div>
+            <h4 class="text-xl font-semibold mb-2 mt-4 text-neutral-dark">
+              <i>RabbitMQ Publisher (Illustrative)</i>
+            </h4>
+            <pre
+              class="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto"
+            ><code>
+// Example using 'amqplib' library (Node.js)
+const amqp = require('amqplib');
+
+async function publishMessage() {
+  const connection = await amqp.connect('amqp://localhost');
+  const channel = await connection.createChannel();
+  const exchange = 'my_exchange';
+  const routingKey = 'my.key';
+  const msg = 'Hello RabbitMQ!';
+
+  await channel.assertExchange(exchange, 'topic', { durable: false });
+  channel.publish(exchange, routingKey, Buffer.from(msg));
+  console.log(`Sent: "${msg}"`);
+
+  setTimeout(() => { connection.close(); }, 500);
+}
+publishMessage().catch(console.error);
+            </code></pre>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <div class="flex items-center mb-3">
+                <img
+                  src="https://static-00.iconduck.com/assets.00/aws-sqs-simple-queue-service-icon-1697x2048-dc7jy6cc.png"
+                  alt="AWS SQS Icon"
+                  class="rounded-full mr-3 w-16 h-16"
+                  onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=SQS';"
+                />
+                <h3 class="text-xl font-bold text-neutral-dark">AWS SQS</h3>
+              </div>
+              <p class="mb-4">
+                Amazon Simple Queue Service (SQS) is a fully managed message
+                queuing service that enables you to decouple and scale
+                microservices, distributed systems, and serverless applications.
+              </p>
+              <ul class="list-disc list-inside text-sm space-y-1">
+                <li>
+                  <strong>Fully Managed:</strong> No servers to provision or
+                  manage.
+                </li>
+                <li>
+                  <strong>Standard & FIFO Queues:</strong> Offers both
+                  high-throughput and strict-ordering options.
+                </li>
+                <li>
+                  <strong>Scalability:</strong> Automatically scales to handle
+                  varying loads.
+                </li>
+              </ul>
+              <div class="flex flex-col items-center mt-4">
+                <div class="flex items-center space-x-4 mb-2 text-sm">
+                  <span class="font-bold">App</span>
+                  <span class="text-2xl">→</span>
+                  <div class="border border-gray-300 p-2 rounded-md">
+                    <p class="font-bold">☁️ SQS Queue</p>
+                  </div>
+                  <span class="text-2xl">→</span>
+                  <span class="font-bold">Worker</span>
+                </div>
+                <p class="text-xs text-gray-600">
+                  SQS Flow: App sends to managed Queue, Worker consumes.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <div class="flex items-center mb-3">
+                <img
+                  src="https://www.cdnlogo.com/logos/g/76/google-cloud-pub-sub.svg"
+                  alt="Google Pub/Sub Icon"
+                  class="rounded-full mr-3 w-16 h-16"
+                  onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=Pub/Sub';"
+                />
+                <h3 class="text-xl font-bold text-neutral-dark">
+                  Google Pub/Sub
+                </h3>
+              </div>
+              <p class="mb-4">
+                Google Cloud Pub/Sub is an asynchronous messaging service that
+                decouples senders and receivers, ideal for streaming analytics
+                and event-driven architectures.
+              </p>
+              <ul class="list-disc list-inside text-sm space-y-1">
+                <li>
+                  <strong>Global Service:</strong> Highly available and durable
+                  across regions.
+                </li>
+                <li>
+                  <strong>Publish/Subscribe Model:</strong> Flexible for fan-out
+                  messaging.
+                </li>
+                <li>
+                  <strong>Real-time Data Streams:</strong> Well-suited for
+                  real-time data ingestion and delivery.
+                </li>
+              </ul>
+              <div class="flex flex-col items-center mt-4">
+                <div class="flex items-center space-x-4 mb-2 text-sm">
+                  <span class="font-bold">Publisher</span>
+                  <span class="text-2xl">→</span>
+                  <div class="border border-gray-300 p-2 rounded-md">
+                    <p class="font-bold">☁️ Pub/Sub Topic</p>
+                  </div>
+                  <span class="text-2xl">→</span>
+                  <span class="font-bold">Subscriber</span>
+                </div>
+                <p class="text-xs text-gray-600">
+                  Pub/Sub Flow: Publisher sends to Topic, Subscriber receives.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-tool-comparisons" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Tool Comparison: Choosing the Right Solution
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          Selecting the optimal queuing technology depends on your specific
+          requirements for persistence, ordering, scalability, and use case.
+        </p>
+        <div class="tool-comparisons-content">
+          <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-200 p-4">
+                <tr>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                  >
+                    Feature
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                  >
+                    Redis (BullMQ)
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                  >
+                    RabbitMQ
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                  >
+                    Kafka
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                  >
+                    AWS SQS
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                  >
+                    Google Pub/Sub
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-400 text-sm">
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-bold">
+                    Persistence
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Optional (AOF/RDB)
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">Durable</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Log-based (high)</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Highly durable</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Highly durable</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-bold">
+                    Ordering
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">FIFO per queue</td>
+                  <td class="px-6 py-4 whitespace-nowrap">FIFO per queue</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Per-partition</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Best-effort</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Best-effort</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-bold">Scaling</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Good (clusters)</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Excellent (federation)
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Massive (distributed)
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">Massive (managed)</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Massive (managed)</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-bold">
+                    Use Case
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">Job queues</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Enterprise messaging
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Streaming, event sourcing
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Decoupling microservices
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Streaming, event-driven
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap font-bold">
+                    Complexity
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Medium 🟡</td>
+                  <td class="px-6 py-4 whitespace-nowrap">High 🔴</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-real-world-patterns" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Real-World Queue Patterns
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          Background queues enable powerful architectural patterns that enhance
+          system resilience, scalability, and user experience.
+        </p>
+        <div class="real-world-patterns-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-red-200"
+            >
+              <h3 class="text-xl font-semibold text-primary mb-2">
+                Chained Jobs / Workflows ⛓️
+              </h3>
+              <p class="text-sm mb-3">
+                A job's successful completion triggers the next job in a
+                sequence, forming a workflow.
+              </p>
+              <p class="text-xs text-gray-600">
+                Example: User uploads video ➝ TranscodeVideoJob completes ➝
+                GenerateThumbnailJob starts ➝ NotifyUserJob starts.
+              </p>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-green-200"
+            >
+              <h3 class="text-xl font-semibold text-secondary mb-2">
+                Fan-out Jobs 📢
+              </h3>
+              <p class="text-sm mb-3">
+                One event triggers multiple independent jobs to be processed
+                concurrently.
+              </p>
+              <p class="text-xs text-gray-600">
+                Example: New order placed ➝ SendEmailConfirmationJob,
+                SendSMSNotificationJob, UpdateInventoryJob.
+              </p>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-yellow-200"
+            >
+              <h3 class="text-xl font-semibold text-accent1 mb-2">
+                Dead Letter Queues (DLQ) ⚰️
+              </h3>
+              <p class="text-sm mb-3">
+                A dedicated queue for jobs that permanently fail after all
+                retries, allowing for manual inspection, debugging, and
+                potential re-queuing.
+              </p>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-teal-200"
+            >
+              <h3 class="text-xl font-semibold text-accent2 mb-2">
+                Batch Processing 📦
+              </h3>
+              <p class="text-sm mb-3">
+                Processing a large number of items in chunks or scheduled
+                batches to optimize resource usage.
+              </p>
+              <p class="text-xs text-gray-600">
+                Example: Daily report generation, processing large CSV imports.
+              </p>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-orange-200"
+            >
+              <h3 class="text-xl font-semibold text-gray-500 mb-2">
+                Idempotent Jobs ✅
+              </h3>
+              <p class="text-sm mb-3">
+                Jobs designed to be run multiple times without causing
+                unintended side effects, crucial for reliable retry mechanisms.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-scaling-security-observability" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Scaling, Security, and Observability
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          Ensuring the reliability, performance, and maintainability of queuing
+          systems requires careful consideration of scaling strategies, robust
+          security measures, and comprehensive observability.
+        </p>
+        <div class="scaling-security-observability-content">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-yellow-300"
+            >
+              <h3 class="text-xl font-semibold text-primary mb-2">
+                Scaling Queue Workers 📈
+              </h3>
+              <ul class="list-disc list-inside text-sm space-y-1">
+                <li>
+                  <strong>Horizontal Scaling:</strong> Add more worker instances
+                  to process jobs in parallel.
+                </li>
+                <li>
+                  <strong>Queue Depth Monitoring:</strong> Monitor pending jobs
+                  to trigger auto-scaling.
+                </li>
+                <li>
+                  <strong>Partitioning:</strong> Kafka uses partitions for
+                  massive parallel processing.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-red-300"
+            >
+              <h3 class="text-xl font-semibold text-secondary mb-2">
+                Security Measures 🔒
+              </h3>
+              <ul class="list-disc list-inside text-sm space-y-1">
+                <li><strong>Queue ACLs:</strong> Restrict access to queues.</li>
+                <li>
+                  <strong>Encrypted Payloads:</strong> Encrypt sensitive job
+                  data.
+                </li>
+                <li>
+                  <strong>Network Segmentation:</strong> Isolate queue
+                  infrastructure.
+                </li>
+                <li>
+                  <strong>Authentication/Authorization:</strong> Secure access
+                  to brokers.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6 border-t-4 border-green-300"
+            >
+              <h3 class="text-xl font-semibold text-accent1 mb-2">
+                Observability & Monitoring 📊
+              </h3>
+              <ul class="list-disc list-inside text-sm space-y-1">
+                <li>
+                  <strong>Logging:</strong> Comprehensive logging of job
+                  lifecycle (added, started, completed, failed, retried).
+                </li>
+                <li>
+                  <strong>Metrics:</strong> Monitor queue depth, processing
+                  time, success/failure rates.
+                </li>
+                <li>
+                  <strong>Alerting:</strong> Set up alerts for critical events
+                  (high queue depth, persistent failures).
+                </li>
+                <li>
+                  <strong>Tracing:</strong> Use distributed tracing (e.g.,
+                  OpenTelemetry) to track jobs across services.
+                </li>
+                <li>
+                  <strong>Tools:</strong> Bull Board, Kafka UI, RabbitMQ
+                  Management Plugin, Prometheus/Grafana.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section-live-demo"
+        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center"
+      >
+        <div
+          class="bg-white rounded-lg shadow-md flex flex-col items-center justify-center py-24 px-8 max-w-2xl mx-auto"
+        >
+          <div class="text-5xl mb-6 text-accent1">⚡</div>
+          <h2
+            class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-4 text-center"
+          >
+            Live Demo: NestJS + BullMQ in Action
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 text-center">
+            The live demonstration will be presented
+            <span class="font-semibold text-primary"
+              >outside of these slides</span
+            >
+            for a more interactive experience.<br />
+            Please follow along as we switch to the code editor and terminal!
+          </p>
+          <div
+            class="flex items-center gap-3 text-accent2 text-3xl animate-bounce mb-2"
+          >
+            <span>💻</span>
+            <span>➡️</span>
+            <span>🖥️</span>
+          </div>
+          <span class="text-sm text-gray-400 mt-4"
+            >Demo will resume shortly...</span
+          >
+        </div>
+      </section>
+
+      <section id="section-market-landscape" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Market Landscape: Size, Growth, and Projections
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          The market for background queue and messaging systems is experiencing
+          robust growth, fueled by the widespread adoption of cloud computing,
+          microservices architectures, and the increasing demand for real-time
+          data processing and responsive applications.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-semibold text-neutral-dark mb-3 text-center"
+            >
+              Global Market Size 2025 <em class="text-xs">(Illustrative)</em>
+            </h3>
+            <div class="chart-container">
+              <canvas id="marketSizeChart"></canvas>
+            </div>
+            <p class="mt-4 text-center text-sm">
+              The global market is estimated at
+              <strong>$15 Billion</strong> in 2025, driven by cloud adoption and
+              microservices. This highlights the foundational role these systems
+              play.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-semibold text-neutral-dark mb-3 text-center"
+            >
+              Projected Market Growth to 2030
+              <em class="text-xs">(Illustrative)</em>
+            </h3>
+            <div class="chart-container">
+              <canvas id="marketGrowthChart"></canvas>
+            </div>
+            <p class="mt-4 text-center text-sm">
+              Projected to reach <strong>$28 Billion</strong> by 2030,
+              exhibiting a strong CAGR of <strong>13.5%</strong> as asynchronous
+              processing becomes a standard architectural pattern.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-key-tech" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Key Technologies & Market Share
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          A diverse range of technologies cater to different queuing and
+          messaging needs, from simple job queues to complex event streaming
+          platforms. Understanding their market positioning is key to selecting
+          the right tool.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-semibold text-neutral-dark mb-3 text-center"
+            >
+              Market Share Analysis 2025
+              <em class="text-xs">(Illustrative)</em>
+            </h3>
+            <div class="chart-container">
+              <canvas id="marketShareChart"></canvas>
+            </div>
+            <p class="mt-4 text-center text-sm">
+              Redis-based solutions (incl. BullMQ) lead for general job queuing
+              (35%), Kafka dominates event streaming (30%), RabbitMQ holds
+              strong in enterprise messaging (20%), and Cloud-native queues
+              (SQS, etc.) capture 15%.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-semibold text-neutral-dark mb-3 text-center"
+            >
+              Developer Adoption Trends
+              <em class="text-xs">(Illustrative)</em>
+            </h3>
+            <div class="chart-container">
+              <canvas id="adoptionTrendsChart"></canvas>
+            </div>
+            <p class="mt-4 text-center text-sm">
+              Developer interest is high across platforms, with significant
+              evaluation of Kafka for streaming and BullMQ for Node.js tasks.
+              Cloud queues see steady adoption due to ease of use.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-use-cases" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Dominant Use Cases & Vertical Adoption
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          Background queues are versatile, finding applications across numerous
+          domains and industries. Their ability to manage workloads efficiently
+          makes them invaluable for a wide array of tasks.
+        </p>
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-semibold text-neutral-dark mb-3 text-center"
+            >
+              Top Use Cases
+              <em class="text-xs">(Illustrative Importance Score)</em>
+            </h3>
+            <div class="chart-container h-[400px] md:h-[450px]">
+              <canvas id="topUseCasesChart"></canvas>
+            </div>
+            <p class="mt-4 text-center text-sm">
+              Asynchronous API processing and real-time notifications are highly
+              prevalent, followed by batch data operations and microservice
+              communication.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3
+              class="text-xl font-semibold text-neutral-dark mb-3 text-center"
+            >
+              Adoption by Industry <em class="text-xs">(Illustrative)</em>
+            </h3>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Industry
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Adoption Level
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Primary Drivers
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap font-medium">
+                      E-commerce
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >High</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Order processing, notifications, inventory updates
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap font-medium">
+                      SaaS
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                        >High</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Background jobs, email, reporting, webhooks
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap font-medium">
+                      FinTech
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                        >Medium</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Transaction processing, fraud detection, compliance
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap font-medium">IoT</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                        >Medium</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Device data ingestion, real-time alerts, analytics
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap font-medium">
+                      Healthcare
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800"
+                        >Low-Medium</span
+                      >
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      Data synchronization, report generation, patient alerts
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-4 text-center text-sm">
+              E-commerce and SaaS industries show high adoption, leveraging
+              queues for scalability and user experience. FinTech and IoT are
+              rapidly increasing usage.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-swot" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          SWOT Analysis: Background Queuing Technologies
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          A strategic overview of the strengths, weaknesses, opportunities, and
+          threats associated with the broader landscape of background queuing
+          and messaging technologies.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 border-t-4 border-green-200"
+          >
+            <h3 class="text-xl font-semibold text-secondary mb-2">
+              Strengths 💪
+            </h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Enhanced Scalability</li>
+              <li>Improved System Resilience</li>
+              <li>Application Decoupling</li>
+              <li>Better User Experience (Performance)</li>
+              <li>Load Balancing Capabilities</li>
+            </ul>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 border-t-4 border-orange-200"
+          >
+            <h3 class="text-xl font-semibold text-accent2 mb-2">
+              Weaknesses ⚠️
+            </h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Increased Complexity (Setup & Maint.)</li>
+              <li>Potential for Message Loss (If misconfigured)</li>
+              <li>Debugging Challenges in Distributed Systems</li>
+              <li>Latency for Asynchronous Tasks</li>
+            </ul>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-200"
+          >
+            <h3 class="text-xl font-semibold text-accent1 mb-2">
+              Opportunities 🚀
+            </h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Growth in Serverless Architectures</li>
+              <li>Integration with AI/ML Workflows</li>
+              <li>Adoption in Edge Computing</li>
+              <li>Advanced Observability & AIOps</li>
+              <li>Standardization of Protocols</li>
+            </ul>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 border-t-4 border-gray-400"
+          >
+            <h3 class="text-xl font-semibold text-gray-500 mb-2">Threats 📉</h3>
+            <ul class="list-disc list-inside text-sm space-y-1">
+              <li>Vendor Lock-in (Cloud-specific queues)</li>
+              <li>Emergence of Simpler Niche Alternatives</li>
+              <li>Security Vulnerabilities</li>
+              <li>Operational Overhead for Self-hosted</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-6 text-sm mx-auto">
+          While offering significant advantages, organizations must consider the
+          operational overhead and choose tools that align with their technical
+          capabilities, specific needs, and long-term architectural vision.
+        </p>
+      </section>
+
+      <section id="section-future-outlook" class="hidden mb-12">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
+        >
+          Future Outlook & Key Trends
+        </h2>
+        <p class="text-center max-w-4xl mx-auto mb-12">
+          The landscape of background queues and messaging systems is
+          continuously evolving. Several key trends are shaping the future,
+          pushing towards more intelligent, automated, and seamlessly integrated
+          solutions.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="text-4xl mb-3">📈</div>
+            <h3 class="text-xl font-semibold text-primary mb-2">
+              Serverless & Managed Queues
+            </h3>
+            <p class="text-sm">
+              Growing preference for fully managed services (like SQS, Google
+              Pub/Sub, Azure Queues) that reduce operational burden and offer
+              auto-scaling capabilities.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="text-4xl mb-3">🧠</div>
+            <h3 class="text-xl font-semibold text-primary mb-2">
+              AI/ML Workload Orchestration
+            </h3>
+            <p class="text-sm">
+              Queues are playing a vital role in distributing and managing
+              computationally intensive AI/ML model training and inference tasks
+              across distributed systems.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="text-4xl mb-3">📊</div>
+            <h3 class="text-xl font-semibold text-primary mb-2">
+              Enhanced Observability & AIOps
+            </h3>
+            <p class="text-sm">
+              Demand for smarter monitoring, predictive scaling, automated issue
+              resolution, and deeper insights into queue performance and
+              behavior using AI for IT Operations.
+            </p>
+          </div>
+        </div>
+        <p class="mt-6 text-sm mx-auto">
+          The evolution of background queues is geared towards greater
+          automation, intelligence, and seamless integration into diverse and
+          complex application architectures, further solidifying their role as a
+          cornerstone of modern software development.
+        </p>
+      </section>
+
+      <section
+        id="section-thank-you"
+        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center"
+      >
+        <div class="bg-white rounded-lg shadow-md text-center py-24 px-12">
+          <span class="text-6xl sm:text-7xl">🙏</span>
+          <h2
+            class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center flex items-center justify-center gap-2"
+          >
+            Thank You!
+            <span class="text-2xl sm:text-3xl">🎉</span>
+          </h2>
+          <p
+            class="text-center max-w-4xl mx-auto mb-8 text-lg flex items-top justify-center gap-2"
+          >
+            <span class="text-xl">💡</span>
+            Thank you for your attention! If you have any questions or would
+            like to discuss further, please feel free to reach out.
+            <span class="text-xl">🤝</span>
+          </p>
+          <div class="flex justify-center items-center gap-4 mt-8">
+            <a
+              href="mailto:suresh@geekyants.com"
+              class="flex items-center gap-2 bg-accent1 text-neutral-dark font-bold py-2 px-4 rounded hover:bg-yellow-400 transition duration-300 shadow"
+              title="Email Me"
+            >
+              <span class="text-xl">✉️</span>
+              Email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sur950/"
+              class="flex items-center gap-2 bg-secondary text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-300 shadow"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Connect on LinkedIn"
+            >
+              <span class="text-xl">🔗</span>
+              LinkedIn
+            </a>
+          </div>
+          <div class="mt-12 flex justify-center">
+            <span class="text-3xl animate-bounce">🚀</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const primaryColor = '#118AB2';
+      const secondaryColor = '#06D6A0';
+      const accent1Color = '#FFD166';
+      const accent2Color = '#FF6B6B';
+      const neutralDarkColor = '#073B4C';
+
+      function processLabels(labels) {
+        return labels.map((label) => {
+          if (typeof label === 'string' && label.length > 16) {
+            const words = label.split(' ');
+            const newLabel = [];
+            let currentLine = '';
+            words.forEach((word) => {
+              if ((currentLine + word).length > 16 && currentLine.length > 0) {
+                newLabel.push(currentLine.trim());
+                currentLine = word + ' ';
+              } else {
+                currentLine += word + ' ';
+              }
+            });
+            newLabel.push(currentLine.trim());
+            return newLabel;
+          }
+          return label;
+        });
+      }
+
+      const commonTooltipOptions = {
+        plugins: {
+          tooltip: {
+            callbacks: {
+              title: function (tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                  return label.join(' ');
+                } else {
+                  return label;
+                }
+              },
+            },
+          },
+        },
+      };
+
+      // Chart instances storage
+      const charts = {};
+
+      function initializeChart(id, type, data, options) {
+        const ctx = document.getElementById(id);
+        if (ctx) {
+          if (charts[id]) {
+            charts[id].destroy(); // Destroy existing chart before re-initializing
+          }
+          charts[id] = new Chart(ctx.getContext('2d'), { type, data, options });
+        }
+      }
+
+      function renderCharts() {
+        // Market Size Chart (Donut)
+        initializeChart(
+          'marketSizeChart',
+          'doughnut',
+          {
+            labels: ['Background Queues & Messaging Market'],
+            datasets: [
+              {
+                label: 'Market Size 2025 ($ Billion)',
+                data: [15], // Illustrative
+                backgroundColor: [secondaryColor],
+                borderColor: [primaryColor],
+                borderWidth: 1,
+              },
+            ],
+          },
+          {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: '$15 Billion (Illustrative)',
+                font: { size: 18, weight: 'bold' },
+                color: neutralDarkColor,
+                position: 'bottom',
+              },
+              tooltip: commonTooltipOptions.plugins.tooltip,
+            },
+          },
+        );
+
+        // Market Growth Chart (Line)
+        initializeChart(
+          'marketGrowthChart',
+          'line',
+          {
+            labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+            datasets: [
+              {
+                label: 'Projected Market Size ($ Billion)',
+                data: [15, 17, 19.5, 22, 25, 28], // Illustrative
+                borderColor: secondaryColor,
+                backgroundColor: 'rgba(6, 214, 160, 0.1)',
+                fill: true,
+                tension: 0.1,
+              },
+            ],
+          },
+          {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: function (value) {
+                    return '$' + value + 'B';
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: { position: 'top' },
+              tooltip: commonTooltipOptions.plugins.tooltip,
+            },
+          },
+        );
+
+        // Market Share Chart (Pie)
+        initializeChart(
+          'marketShareChart',
+          'pie',
+          {
+            labels: processLabels([
+              'Redis-based (BullMQ)',
+              'Apache Kafka',
+              'RabbitMQ',
+              'Cloud (SQS, etc.)',
+            ]),
+            datasets: [
+              {
+                label: 'Market Share %',
+                data: [35, 30, 20, 15], // Illustrative
+                backgroundColor: [
+                  primaryColor,
+                  secondaryColor,
+                  accent1Color,
+                  accent2Color,
+                ],
+                hoverOffset: 4,
+              },
+            ],
+          },
+          {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { font: { size: 10 } } },
+              tooltip: commonTooltipOptions.plugins.tooltip,
+            },
+          },
+        );
+
+        // Adoption Trends Chart (Stacked Bar)
+        initializeChart(
+          'adoptionTrendsChart',
+          'bar',
+          {
+            labels: processLabels([
+              'Redis-based',
+              'Kafka',
+              'RabbitMQ',
+              'Cloud Queues',
+            ]),
+            datasets: [
+              {
+                label: 'Using',
+                data: [60, 50, 45, 55], // Illustrative
+                backgroundColor: primaryColor,
+              },
+              {
+                label: 'Evaluating',
+                data: [20, 30, 25, 20], // Illustrative
+                backgroundColor: secondaryColor,
+              },
+              {
+                label: 'Planning to Use',
+                data: [10, 15, 10, 15], // Illustrative
+                backgroundColor: accent1Color,
+              },
+            ],
+          },
+          {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { stacked: true },
+              y: {
+                stacked: true,
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    return value + '%';
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: { position: 'bottom', labels: { font: { size: 10 } } },
+              tooltip: commonTooltipOptions.plugins.tooltip,
+            },
+          },
+        );
+
+        // Top Use Cases Chart (Horizontal Bar)
+        initializeChart(
+          'topUseCasesChart',
+          'bar',
+          {
+            labels: processLabels([
+              'Asynchronous API Processing',
+              'Real-time Notifications & Alerts',
+              'Batch Data Processing',
+              'Microservice Communication',
+              'Event Streaming & Analytics',
+              'Scheduled & Delayed Tasks',
+            ]),
+            datasets: [
+              {
+                label: 'Importance Score (Illustrative)',
+                data: [90, 85, 80, 75, 70, 65], // Illustrative
+                backgroundColor: [
+                  primaryColor,
+                  secondaryColor,
+                  accent1Color,
+                  accent2Color,
+                  '#4A5568', // A darker gray
+                  '#718096', // A lighter gray
+                ],
+                borderColor: neutralDarkColor,
+                borderWidth: 1,
+              },
+            ],
+          },
+          {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { beginAtZero: true, max: 100 },
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: commonTooltipOptions.plugins.tooltip,
+            },
+          },
+        );
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const contentMain = document.getElementById('content-main');
+        const sections = document.querySelectorAll('main section');
+        const prevSectionBtn = document.getElementById('prev-section-btn');
+        const nextSectionBtn = document.getElementById('next-section-btn');
+
+        const sectionOrder = [
+          'section-overview',
+          'section-agenda',
+          'section-what-how',
+          'section-why-when',
+          'section-common-tools',
+          'section-tool-comparisons',
+          'section-real-world-patterns',
+          'section-scaling-security-observability',
+          'section-live-demo',
+          'section-market-landscape',
+          'section-key-tech',
+          'section-use-cases',
+          'section-swot',
+          'section-future-outlook',
+          'section-thank-you',
+        ];
+        let currentSectionIndex = 0;
+
+        // Function to show a specific section and hide others
+        function showSection(sectionId) {
+          sections.forEach((section) => {
+            section.classList.add('hidden'); // Use Tailwind's hidden class
+          });
+          const targetSection = document.getElementById(sectionId);
+          if (targetSection) {
+            targetSection.classList.remove('hidden');
+            renderCharts(); // Re-render charts when their section becomes visible
+          }
+
+          // Update Previous/Next button states
+          currentSectionIndex = sectionOrder.indexOf(sectionId);
+          prevSectionBtn.style.display =
+            currentSectionIndex === 0 ? 'none' : 'inline-block';
+          nextSectionBtn.style.display =
+            currentSectionIndex === sectionOrder.length - 1
+              ? 'none'
+              : 'inline-block';
+
+          // Update URL query parameter
+          const url = new URL(window.location.href);
+          url.searchParams.set('section', sectionId);
+          window.history.replaceState(null, '', url.toString());
+        }
+
+        // Handle navigation button clicks (agenda links)
+        document
+          .querySelectorAll('#section-agenda button[data-section]')
+          .forEach((button) => {
+            button.addEventListener('click', (event) => {
+              event.preventDefault(); // Prevent default link behavior for agenda items
+              const sectionId = button.dataset.section;
+              showSection(sectionId);
+            });
+          });
+
+        // Handle Previous/Next buttons
+        prevSectionBtn.addEventListener('click', () => {
+          if (currentSectionIndex > 0) {
+            showSection(sectionOrder[currentSectionIndex - 1]);
+          }
+        });
+
+        nextSectionBtn.addEventListener('click', () => {
+          if (currentSectionIndex < sectionOrder.length - 1) {
+            showSection(sectionOrder[currentSectionIndex + 1]);
+          }
+        });
+
+        // Show the initial section (Overview) on load, checking URL first
+        const urlParams = new URLSearchParams(window.location.search);
+        const sectionFromUrl = urlParams.get('section');
+        const initialSection =
+          sectionFromUrl && sectionOrder.includes(sectionFromUrl)
+            ? sectionFromUrl
+            : 'section-overview';
+        showSection(initialSection);
+      });
+
+      // Ensure charts re-render on window resize if needed (Chart.js responsive handles most cases)
+      window.addEventListener('resize', () => {
+        // This will re-initialize charts if the active section is visible
+        const activeSectionId =
+          document.querySelector('.nav-button.active')?.dataset.section; // Use optional chaining
+        if (activeSectionId && document.getElementById(activeSectionId)) {
+          renderCharts();
+        }
+      });
+    </script>
+  </body>
+</html>
