@@ -264,6 +264,38 @@
               Market Insights & Future
             </button>
           </li>
+          <li>
+            <button
+              data-section="section-key-tech"
+              class="text-primary hover:underline font-semibold"
+            >
+              Key Technologies & Market Share
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-use-cases"
+              class="text-primary hover:underline font-semibold"
+            >
+              Dominant Use Cases & Vertical Adoption
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-swot"
+              class="text-primary hover:underline font-semibold"
+            >
+              SWOT Analysis
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="section-future-outlook"
+              class="text-primary hover:underline font-semibold"
+            >
+              Future Outlook & Key Trends
+            </button>
+          </li>
         </ul>
       </section>
 
@@ -480,6 +512,23 @@
         </div>
       </section>
 
+      <section
+        id="section-question-1"
+        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg shadow-xl p-8"
+      >
+        <div class="text-6xl mb-6 animate-pulse">🤔</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+          Audience Question:
+        </h2>
+        <p class="text-xl sm:text-2xl text-neutral-dark mb-8 max-w-3xl">
+          What's the biggest challenge you've faced with background tasks or
+          asynchronous processing in your projects?
+        </p>
+        <p class="text-lg text-gray-600">
+          (Share your thoughts, experiences, or questions!)
+        </p>
+      </section>
+
       <section id="section-why-when" class="hidden mb-12">
         <h2
           class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-6 text-center"
@@ -487,69 +536,105 @@
           When to Use, and When Not to Use Them
         </h2>
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold text-secondary mb-3">
-              ✅ When to Use
+          <div class="bg-white rounded-lg p-6">
+            <h3
+              class="text-2xl font-bold text-secondary mb-4 flex items-center"
+            >
+              <span class="text-4xl mr-3">✅</span> When to Use
             </h3>
-            <ul class="list-disc list-inside text-base space-y-2">
+            <ul class="list-disc list-inside text-lg space-y-4">
               <li>
-                <strong>Asynchronous Heavy-Lifting Tasks:</strong> Offload
-                long-running operations (e.g., video encoding, complex report
-                generation).
+                <strong>Long-Running Tasks:</strong> Use queues for tasks that
+                take a long time to finish, like converting a video or creating
+                a big report. This keeps your main application fast and
+                responsive.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> When you upload a video to YouTube, it gets
+                  processed in the background so you don't have to wait.
+                </p>
               </li>
               <li>
-                <strong>Job Decoupling:</strong> Separate concerns; producers
-                don't need to know how consumers work, improving modularity.
+                <strong>Separating Work:</strong> Queues help different parts of
+                your system work independently. One part can send a task without
+                needing to know how or when another part will complete it.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> After you buy something online, the website
+                  can immediately confirm your order while sending the email
+                  receipt in the background.
+                </p>
               </li>
               <li>
-                <strong>Scheduled or Delayed Jobs:</strong> Execute tasks at a
-                specific time or after a delay (e.g., "send welcome email 24
-                hours after signup").
+                <strong>Scheduled or Delayed Actions:</strong> Perfect for tasks
+                that need to happen at a specific time or after a delay.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> A marketing app can schedule a welcome email
+                  to be sent to new users 24 hours after they sign up.
+                </p>
               </li>
               <li>
-                <strong>Load Distribution & Throttling:</strong> Distribute
-                tasks across multiple workers to handle spikes in traffic and
-                prevent system overload.
+                <strong>Handling Many Requests:</strong> When your application
+                gets a sudden rush of users or requests, queues can spread the
+                work across many background workers, preventing your system from
+                crashing.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> During a flash sale, an e-commerce platform
+                  uses queues to manage thousands of incoming orders without
+                  slowing down the user experience.
+                </p>
               </li>
               <li>
-                <strong>Reliability:</strong> Ensures tasks are eventually
-                processed, even if workers fail, thanks to persistence and
-                retries.
+                <strong>Making Things Reliable:</strong> Queues make sure tasks
+                eventually get done, even if something goes wrong temporarily.
+                If a worker fails, the task can be retried.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> If a social media post fails to upload due
+                  to a temporary internet glitch, the system can automatically
+                  retry it later.
+                </p>
               </li>
             </ul>
           </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-semibold text-accent2 mb-3">
-              ❌ When Not To Use
+          <div class="bg-white rounded-lg p-6">
+            <h3 class="text-2xl font-bold text-accent2 mb-4 flex items-center">
+              <span class="text-4xl mr-3">❌</span> When Not To Use
             </h3>
-            <ul class="list-disc list-inside text-base space-y-2">
+            <ul class="list-disc list-inside text-lg space-y-4">
               <li>
-                <strong>When Strong Consistency is Needed:</strong> Not suitable
-                for real-time operations requiring immediate data consistency
-                (e.g., critical financial transactions where immediate feedback
-                is required).
+                <strong>When Immediate Results are Needed:</strong> Don't use
+                queues for actions where the user needs an instant response,
+                like checking if a password is correct.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> When you log in to your bank account, you
+                  need to know immediately if your password is correct, not
+                  minutes later.
+                </p>
               </li>
               <li>
-                <strong>When Blocking Isn't Acceptable:</strong> If the user
-                must wait for the task to complete before proceeding, a direct
-                synchronous call is better.
+                <strong>For Very Simple Tasks:</strong> Adding a queue for tiny
+                tasks that finish in a blink adds unnecessary complexity.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> If your app just needs to save a small piece
+                  of text to a database, doing it directly is faster and simpler
+                  than using a queue.
+                </p>
               </li>
               <li>
-                <strong>For Simple, Fast Operations:</strong> Adds unnecessary
-                complexity and overhead for trivial tasks that complete
-                instantly.
-              </li>
-              <li>
-                <strong>Over-engineering:</strong> Don't introduce queues if a
-                simpler, synchronous approach suffices for current needs.
+                <strong>If Over-Complicating:</strong> If a simple, direct way
+                works perfectly fine for your current needs, don't add queues
+                just because they sound fancy.
+                <p class="text-sm text-gray-600 mt-1">
+                  <em>Example:</em> For a basic website with low traffic,
+                  sending contact form submissions directly to an email service
+                  might be enough, without needing a queue.
+                </p>
               </li>
             </ul>
           </div>
         </div>
-        <p class="mt-6 text-sm mx-auto">
-          <i>Disclaimer:</i> Choosing whether to use a queue involves balancing
-          the benefits of asynchronicity and scalability against the added
-          complexity.
+        <p class="mt-6 text-sm mx-auto text-center">
+          <i>Disclaimer:</i> Deciding whether to use a queue means balancing the
+          benefits of doing things in the background and handling many tasks
+          against the extra work of setting it up and keeping it running.
         </p>
       </section>
 
@@ -1030,6 +1115,23 @@ publishMessage().catch(console.error);
             </table>
           </div>
         </div>
+      </section>
+
+      <section
+        id="section-question-2"
+        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center bg-gradient-to-br from-green-100 to-teal-100 rounded-lg shadow-xl p-8"
+      >
+        <div class="text-6xl mb-6 animate-bounce">💡</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-secondary mb-4">
+          Audience Question:
+        </h2>
+        <p class="text-xl sm:text-2xl text-neutral-dark mb-8 max-w-3xl">
+          Based on the comparison, which queuing tool resonates most with your
+          project needs and why?
+        </p>
+        <p class="text-lg text-gray-600">
+          (Let's discuss your preferences and experiences!)
+        </p>
       </section>
 
       <section id="section-real-world-patterns" class="hidden mb-12">
@@ -1655,6 +1757,11 @@ publishMessage().catch(console.error);
       const accent2Color = '#FF6B6B';
       const neutralDarkColor = '#073B4C';
 
+      /**
+       * Processes chart labels to add line breaks for better readability if they are too long.
+       * @param {Array<string>} labels - The array of labels to process.
+       * @returns {Array<string|Array<string>>} - The processed labels, potentially with nested arrays for line breaks.
+       */
       function processLabels(labels) {
         return labels.map((label) => {
           if (typeof label === 'string' && label.length > 16) {
@@ -1676,6 +1783,7 @@ publishMessage().catch(console.error);
         });
       }
 
+      // Common tooltip options for Chart.js to handle multi-line labels
       const commonTooltipOptions = {
         plugins: {
           tooltip: {
@@ -1684,7 +1792,7 @@ publishMessage().catch(console.error);
                 const item = tooltipItems[0];
                 let label = item.chart.data.labels[item.dataIndex];
                 if (Array.isArray(label)) {
-                  return label.join(' ');
+                  return label.join(' '); // Join multi-line labels for tooltip title
                 } else {
                   return label;
                 }
@@ -1694,9 +1802,17 @@ publishMessage().catch(console.error);
         },
       };
 
-      // Chart instances storage
+      // Object to store Chart.js instances for easy management
       const charts = {};
 
+      /**
+       * Initializes a Chart.js chart on a given canvas element.
+       * Destroys any existing chart on the same canvas before creating a new one.
+       * @param {string} id - The ID of the canvas element.
+       * @param {string} type - The type of chart (e.g., 'doughnut', 'line', 'pie', 'bar').
+       * @param {object} data - The data object for the chart.
+       * @param {object} options - The options object for the chart.
+       */
       function initializeChart(id, type, data, options) {
         const ctx = document.getElementById(id);
         if (ctx) {
@@ -1707,6 +1823,10 @@ publishMessage().catch(console.error);
         }
       }
 
+      /**
+       * Renders all the charts defined in the application.
+       * This function is called when a chart-containing section becomes visible.
+       */
       function renderCharts() {
         // Market Size Chart (Donut)
         initializeChart(
@@ -1916,13 +2036,16 @@ publishMessage().catch(console.error);
         const prevSectionBtn = document.getElementById('prev-section-btn');
         const nextSectionBtn = document.getElementById('next-section-btn');
 
+        // Define the order of sections for navigation, including new question sections
         const sectionOrder = [
           'section-overview',
           'section-agenda',
           'section-what-how',
+          'section-question-1',
           'section-why-when',
           'section-common-tools',
           'section-tool-comparisons',
+          'section-question-2',
           'section-real-world-patterns',
           'section-scaling-security-observability',
           'section-live-demo',
@@ -1935,7 +2058,11 @@ publishMessage().catch(console.error);
         ];
         let currentSectionIndex = 0;
 
-        // Function to show a specific section and hide others
+        /**
+         * Shows a specific section and hides all other sections.
+         * Updates the navigation button visibility and URL parameter.
+         * @param {string} sectionId - The ID of the section to display.
+         */
         function showSection(sectionId) {
           sections.forEach((section) => {
             section.classList.add('hidden'); // Use Tailwind's hidden class
@@ -1943,10 +2070,12 @@ publishMessage().catch(console.error);
           const targetSection = document.getElementById(sectionId);
           if (targetSection) {
             targetSection.classList.remove('hidden');
+            // Scroll to the top of the newly displayed section
+            contentMain.scrollTop = 0;
             renderCharts(); // Re-render charts when their section becomes visible
           }
 
-          // Update Previous/Next button states
+          // Update Previous/Next button states based on current section index
           currentSectionIndex = sectionOrder.indexOf(sectionId);
           prevSectionBtn.style.display =
             currentSectionIndex === 0 ? 'none' : 'inline-block';
@@ -1955,7 +2084,7 @@ publishMessage().catch(console.error);
               ? 'none'
               : 'inline-block';
 
-          // Update URL query parameter
+          // Update URL query parameter to reflect the current section
           const url = new URL(window.location.href);
           url.searchParams.set('section', sectionId);
           window.history.replaceState(null, '', url.toString());
@@ -1972,16 +2101,38 @@ publishMessage().catch(console.error);
             });
           });
 
-        // Handle Previous/Next buttons
+        // Handle Previous button click
         prevSectionBtn.addEventListener('click', () => {
           if (currentSectionIndex > 0) {
             showSection(sectionOrder[currentSectionIndex - 1]);
           }
         });
 
+        // Handle Next button click
         nextSectionBtn.addEventListener('click', () => {
           if (currentSectionIndex < sectionOrder.length - 1) {
             showSection(sectionOrder[currentSectionIndex + 1]);
+          }
+        });
+
+        // Add keyboard navigation for left, right, up, and down arrow keys
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowLeft') {
+            // If left arrow key is pressed
+            event.preventDefault(); // Prevent default browser scrolling
+            prevSectionBtn.click(); // Simulate a click on the previous button
+          } else if (event.key === 'ArrowRight') {
+            // If right arrow key is pressed
+            event.preventDefault(); // Prevent default browser scrolling
+            nextSectionBtn.click(); // Simulate a click on the next button
+          } else if (event.key === 'ArrowUp') {
+            // If up arrow key is pressed, scroll up within the current section
+            event.preventDefault();
+            contentMain.scrollBy({ top: -100, behavior: 'smooth' }); // Scroll up by 100px
+          } else if (event.key === 'ArrowDown') {
+            // If down arrow key is pressed, scroll down within the current section
+            event.preventDefault();
+            contentMain.scrollBy({ top: 100, behavior: 'smooth' }); // Scroll down by 100px
           }
         });
 
@@ -1998,9 +2149,10 @@ publishMessage().catch(console.error);
       // Ensure charts re-render on window resize if needed (Chart.js responsive handles most cases)
       window.addEventListener('resize', () => {
         // This will re-initialize charts if the active section is visible
-        const activeSectionId =
-          document.querySelector('.nav-button.active')?.dataset.section; // Use optional chaining
-        if (activeSectionId && document.getElementById(activeSectionId)) {
+        const activeSectionId = document.querySelector(
+          'main section:not(.hidden)',
+        )?.id; // Get the ID of the currently visible section
+        if (activeSectionId) {
           renderCharts();
         }
       });
