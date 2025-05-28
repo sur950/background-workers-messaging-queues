@@ -3,7 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Background Queues: Market & Technology Insights 2025</title>
+    <meta name="title" content="Background Workers & Messaging Queues" />
+    <meta
+      name="description"
+      content="Explore the world of background workers and messaging queues, their use cases, tools, and market insights."
+    />
+    <meta name="author" content="Suresh Konakanchi" />
+    <meta
+      name="keywords"
+      content="Background Workers, Messaging Queues, BullMQ, Kafka, RabbitMQ, Asynchronous Processing, NestJS"
+    />
+    <title>Background Queues: Market & Technology Insights</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link
@@ -104,6 +114,19 @@
         height: calc(100vh - 80px); /* Full height below header */
         margin-top: 80px; /* Pushed down by fixed header */
       }
+      .source-text {
+        font-size: 0.75rem; /* Tailwind 'text-xs' */
+        color: #4a5568; /* Tailwind 'text-gray-600' */
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .source-text a {
+        color: #3182ce; /* Tailwind 'text-blue-600' */
+        text-decoration: underline;
+      }
+      .source-text a:hover {
+        color: #2b6cb0; /* Tailwind 'text-blue-800' */
+      }
     </style>
   </head>
   <body class="flex flex-col min-h-screen antialiased">
@@ -130,7 +153,7 @@
         <h1
           class="text-xl sm:text-2xl md:text-3xl font-bold mx-auto text-center"
         >
-          BG Workers & Messaging Quques
+          BG Workers & Messaging Queues
         </h1>
       </div>
       <div class="flex items-center space-x-2 text-right ml-auto">
@@ -181,14 +204,6 @@
           class="w-48 h-auto mt-4"
           onerror="this.onerror=null;this.src='https://placehold.co/192x72/073B4C/FFFFFF?text=GeekyAnts';"
         />
-        <div
-          class="mt-8 bg-secondary text-white p-8 rounded-lg shadow-md max-w-md"
-        >
-          <div class="text-5xl sm:text-6xl font-bold mb-2">2025</div>
-          <p class="text-lg sm:text-xl">
-            A Pivotal Year for Asynchronous Architectures
-          </p>
-        </div>
       </section>
 
       <section id="section-agenda" class="hidden mb-12">
@@ -299,6 +314,23 @@
         </ul>
       </section>
 
+      <section
+        id="section-question-1"
+        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg shadow-xl p-8"
+      >
+        <div class="text-6xl mb-6 animate-pulse">🤔</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
+          Audience Question:
+        </h2>
+        <p class="text-xl sm:text-2xl text-neutral-dark mb-8 max-w-3xl">
+          What's the biggest challenge you've faced with asynchronous processing
+          in your projects?
+        </p>
+        <p class="text-lg text-gray-600">
+          (Share your thoughts, experiences, or questions!)
+        </p>
+      </section>
+
       <section id="section-what-how" class="hidden mb-12">
         <h2
           class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-6 text-center"
@@ -330,8 +362,8 @@
             </h3>
             <ul class="list-disc list-inside space-y-2 text-base">
               <li>
-                <strong>Producer:</strong> Enqueues tasks (e.g. frontend/backend
-                service)
+                <strong>Producer:</strong> Enqueues tasks (e.g. backend
+                services)
               </li>
               <li><strong>Queue Broker:</strong> Stores and manages jobs</li>
               <li><strong>Worker:</strong> Consumes and executes jobs</li>
@@ -438,7 +470,7 @@
                 </div>
                 <span class="text-3xl text-primary">↓</span>
                 <div class="flow-step bg-gray-100 border-gray-400 w-48">
-                  <span class="font-bold">Message Queue</span>
+                  <span class="font-bold">Email Queue</span>
                 </div>
               </div>
               <div class="flex flex-col items-center">
@@ -450,7 +482,7 @@
                 </div>
                 <span class="text-3xl text-primary">↓</span>
                 <div class="flow-step bg-gray-100 border-gray-400 w-48">
-                  <span class="font-bold">Message Queue</span>
+                  <span class="font-bold">Video Queue</span>
                 </div>
               </div>
             </div>
@@ -512,23 +544,6 @@
         </div>
       </section>
 
-      <section
-        id="section-question-1"
-        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg shadow-xl p-8"
-      >
-        <div class="text-6xl mb-6 animate-pulse">🤔</div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-primary mb-4">
-          Audience Question:
-        </h2>
-        <p class="text-xl sm:text-2xl text-neutral-dark mb-8 max-w-3xl">
-          What's the biggest challenge you've faced with background tasks or
-          asynchronous processing in your projects?
-        </p>
-        <p class="text-lg text-gray-600">
-          (Share your thoughts, experiences, or questions!)
-        </p>
-      </section>
-
       <section id="section-why-when" class="hidden mb-12">
         <h2
           class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-6 text-center"
@@ -544,52 +559,36 @@
             </h3>
             <ul class="list-disc list-inside text-lg space-y-4">
               <li>
-                <strong>Long-Running Tasks:</strong> Use queues for tasks that
-                take a long time to finish, like converting a video or creating
-                a big report. This keeps your main application fast and
-                responsive.
+                <strong>Long Tasks:</strong> Offload slow jobs to keep apps
+                fast.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> When you upload a video to YouTube, it gets
-                  processed in the background so you don't have to wait.
+                  <em>Ex:</em> YouTube video processing after upload.
                 </p>
               </li>
               <li>
-                <strong>Separating Work:</strong> Queues help different parts of
-                your system work independently. One part can send a task without
-                needing to know how or when another part will complete it.
+                <strong>Decoupling:</strong> Let services work independently.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> After you buy something online, the website
-                  can immediately confirm your order while sending the email
-                  receipt in the background.
+                  <em>Ex:</em> Banking app sends transaction emails in
+                  background.
                 </p>
               </li>
               <li>
-                <strong>Scheduled or Delayed Actions:</strong> Perfect for tasks
-                that need to happen at a specific time or after a delay.
+                <strong>Scheduling:</strong> Delay or schedule jobs.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> A marketing app can schedule a welcome email
-                  to be sent to new users 24 hours after they sign up.
+                  <em>Ex:</em> Welcome email sent 1 day after signup.
                 </p>
               </li>
               <li>
-                <strong>Handling Many Requests:</strong> When your application
-                gets a sudden rush of users or requests, queues can spread the
-                work across many background workers, preventing your system from
-                crashing.
+                <strong>High Load:</strong> Handle spikes smoothly.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> During a flash sale, an e-commerce platform
-                  uses queues to manage thousands of incoming orders without
-                  slowing down the user experience.
+                  <em>Ex:</em> Amazon flash sale order processing.
                 </p>
               </li>
               <li>
-                <strong>Making Things Reliable:</strong> Queues make sure tasks
-                eventually get done, even if something goes wrong temporarily.
-                If a worker fails, the task can be retried.
+                <strong>Reliability:</strong> Retry failed jobs.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> If a social media post fails to upload due
-                  to a temporary internet glitch, the system can automatically
-                  retry it later.
+                  <em>Ex:</em> WhatsApp retries message delivery if service is
+                  down.
                 </p>
               </li>
             </ul>
@@ -600,38 +599,29 @@
             </h3>
             <ul class="list-disc list-inside text-lg space-y-4">
               <li>
-                <strong>When Immediate Results are Needed:</strong> Don't use
-                queues for actions where the user needs an instant response,
-                like checking if a password is correct.
+                <strong>Need Instant Results:</strong> User must see result
+                right away.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> When you log in to your bank account, you
-                  need to know immediately if your password is correct, not
-                  minutes later.
+                  <em>Ex:</em> Password check on login.
                 </p>
               </li>
               <li>
-                <strong>For Very Simple Tasks:</strong> Adding a queue for tiny
-                tasks that finish in a blink adds unnecessary complexity.
+                <strong>Tiny Tasks:</strong> Simple, fast actions.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> If your app just needs to save a small piece
-                  of text to a database, doing it directly is faster and simpler
-                  than using a queue.
+                  <em>Ex:</em> Saving a chat message to DB.
                 </p>
               </li>
               <li>
-                <strong>If Over-Complicating:</strong> If a simple, direct way
-                works perfectly fine for your current needs, don't add queues
-                just because they sound fancy.
+                <strong>Unnecessary Complexity:</strong> Don’t add queues if
+                direct is enough.
                 <p class="text-sm text-gray-600 mt-1">
-                  <em>Example:</em> For a basic website with low traffic,
-                  sending contact form submissions directly to an email service
-                  might be enough, without needing a queue.
+                  <em>Ex:</em> Low-traffic site sending contact form emails.
                 </p>
               </li>
             </ul>
           </div>
         </div>
-        <p class="mt-6 text-sm mx-auto text-center">
+        <p class="mt-6 text-sm mx-auto text-left">
           <i>Disclaimer:</i> Deciding whether to use a queue means balancing the
           benefits of doing things in the background and handling many tasks
           against the extra work of setting it up and keeping it running.
@@ -1004,6 +994,7 @@ publishMessage().catch(console.error);
         <p class="text-center max-w-4xl mx-auto mb-12">
           Selecting the optimal queuing technology depends on your specific
           requirements for persistence, ordering, scalability, and use case.
+          Consider these general characteristics.
         </p>
         <div class="tool-comparisons-content">
           <div class="overflow-x-auto bg-white rounded-lg shadow-md">
@@ -1038,13 +1029,7 @@ publishMessage().catch(console.error);
                     scope="col"
                     class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
                   >
-                    AWS SQS
-                  </th>
-                  <th
-                    scope="col"
-                    class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
-                  >
-                    Google Pub/Sub
+                    Cloud (AWS SQS, Pub/Sub)
                   </th>
                 </tr>
               </thead>
@@ -1059,17 +1044,17 @@ publishMessage().catch(console.error);
                   <td class="px-6 py-4 whitespace-nowrap">Durable</td>
                   <td class="px-6 py-4 whitespace-nowrap">Log-based (high)</td>
                   <td class="px-6 py-4 whitespace-nowrap">Highly durable</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Highly durable</td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap font-bold">
                     Ordering
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">FIFO per queue</td>
-                  <td class="px-6 py-4 whitespace-nowrap">FIFO per queue</td>
+                  <td class="px-6 py-4 whitespace-nowrap">FIFO</td>
+                  <td class="px-6 py-4 whitespace-nowrap">FIFO</td>
                   <td class="px-6 py-4 whitespace-nowrap">Per-partition</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Best-effort</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Best-effort</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    Best-effort / FIFO
+                  </td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap font-bold">Scaling</td>
@@ -1081,39 +1066,43 @@ publishMessage().catch(console.error);
                     Massive (distributed)
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">Massive (managed)</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Massive (managed)</td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap font-bold">
                     Use Case
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">Job queues</td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    Enterprise messaging
+                    Job queues, Caching
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    Streaming, event sourcing
+                    Enterprise messaging, Complex routing
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    Decoupling microservices
+                    Streaming, Event sourcing, Logs
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    Streaming, event-driven
+                    Decoupling microservices, Serverless
                   </td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap font-bold">
                     Complexity
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢</td>
+                  <td class="px-6 py-4 whitespace-nowrap">Low-Medium 🟢</td>
                   <td class="px-6 py-4 whitespace-nowrap">Medium 🟡</td>
-                  <td class="px-6 py-4 whitespace-nowrap">High 🔴</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    High 🔴 (Self-managed)
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">Low 🟢 (Managed)</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p class="source-text mt-4 text-sm text-gray-600 text-left">
+            <i>Disclaimer:</i> This comparison is a general overview. Specific
+            features and complexity can vary based on configuration and use
+            case.
+          </p>
         </div>
       </section>
 
@@ -1127,7 +1116,7 @@ publishMessage().catch(console.error);
         </h2>
         <p class="text-xl sm:text-2xl text-neutral-dark mb-8 max-w-3xl">
           Based on the comparison, which queuing tool resonates most with your
-          project needs and why?
+          project needs?
         </p>
         <p class="text-lg text-gray-600">
           (Let's discuss your preferences and experiences!)
@@ -1340,6 +1329,24 @@ publishMessage().catch(console.error);
         </div>
       </section>
 
+      <section
+        id="section-question-3"
+        class="hidden mb-12 flex flex-col justify-center items-center min-h-[calc(100vh-80px-5rem)] text-center bg-gradient-to-br from-pink-100 to-yellow-100 rounded-lg shadow-xl p-8"
+      >
+        <div class="text-6xl mb-6 animate-bounce">🚀</div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-secondary mb-4">
+          Quick Stats
+        </h2>
+        <p class="text-xl sm:text-2xl text-neutral-dark mb-8 max-w-3xl">
+          Let's See the Market Analysis and Key Technologies for Background
+          Queues and Messaging Systems based on recent insights!
+        </p>
+        <p class="text-lg text-gray-600">
+          (Market Size, Growth, Adoption, Use Cases etc. - with sourced
+          information)
+        </p>
+      </section>
+
       <section id="section-market-landscape" class="hidden mb-12">
         <h2
           class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
@@ -1350,72 +1357,110 @@ publishMessage().catch(console.error);
           The market for background queue and messaging systems is experiencing
           robust growth, fueled by the widespread adoption of cloud computing,
           microservices architectures, and the increasing demand for real-time
-          data processing and responsive applications.
+          data processing and responsive applications. Recent reports from
+          2024-2025 indicate significant expansion.
         </p>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3
               class="text-xl font-semibold text-neutral-dark mb-3 text-center"
             >
-              Global Market Size 2025 <em class="text-xs">(Illustrative)</em>
+              Global Market Snapshot
+              <i class="text-sm text-gray-600">(Illustrative)</i>
             </h3>
             <div class="chart-container">
               <canvas id="marketSizeChart"></canvas>
             </div>
             <p class="mt-4 text-center text-sm">
-              The global market is estimated at
-              <strong>$15 Billion</strong> in 2025, driven by cloud adoption and
-              microservices. This highlights the foundational role these systems
-              play.
+              For instance, the Message Queue (MQ) Software market alone was
+              valued at approximately <strong>$0.41 Billion in 2024</strong>.
+              This highlights the foundational role these systems play in modern
+              IT infrastructure. (Illustrative chart representation).
             </p>
           </div>
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3
               class="text-xl font-semibold text-neutral-dark mb-3 text-center"
             >
-              Projected Market Growth to 2030
-              <em class="text-xs">(Illustrative)</em>
+              Projected Market Growth
+              <i class="text-sm text-gray-600">(Illustrative)</i>
             </h3>
             <div class="chart-container">
               <canvas id="marketGrowthChart"></canvas>
             </div>
             <p class="mt-4 text-center text-sm">
-              Projected to reach <strong>$28 Billion</strong> by 2030,
-              exhibiting a strong CAGR of <strong>13.5%</strong> as asynchronous
-              processing becomes a standard architectural pattern.
+              The Event Stream Processing market is projected to grow from
+              around
+              <strong>$1.45 Billion in 2024 to $3.38 Billion by 2029</strong>,
+              exhibiting a strong CAGR of approximately <strong>18.4%</strong>.
+              This underscores the rapid adoption of real-time data processing.
+              (Illustrative chart representation).
             </p>
           </div>
         </div>
+        <p class="source-text text-left mt-4 text-gray-600">
+          <i>Disclaimer:</i> Market data is illustrative and represents an
+          average understanding. For specific figures, consult full reports from
+          sources like:
+          <a
+            href="https://www.businessresearchinsights.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Business Research Insights</a
+          >
+          (MQ Software Market),
+          <a
+            href="https://www.thebusinessresearchcompany.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >The Business Research Company</a
+          >
+          (Event Stream Processing Market),
+          <a
+            href="https://www.valuates.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Valuates Reports</a
+          >, and
+          <a
+            href="https://www.congruencemarketinsights.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Congruence Market Insights</a
+          >. Data typically reflects findings from 2024-2025 and projections
+          thereof.
+        </p>
       </section>
 
       <section id="section-key-tech" class="hidden mb-12">
         <h2
           class="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2 text-center"
         >
-          Key Technologies & Market Share
+          Key Technologies & Adoption Trends
         </h2>
         <p class="text-center max-w-4xl mx-auto mb-12">
           A diverse range of technologies cater to different queuing and
-          messaging needs, from simple job queues to complex event streaming
-          platforms. Understanding their market positioning is key to selecting
-          the right tool.
+          messaging needs. Recent trends highlight the dominance of certain
+          platforms in specific use cases and the growing adoption of
+          cloud-native solutions.
         </p>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3
               class="text-xl font-semibold text-neutral-dark mb-3 text-center"
             >
-              Market Share Analysis 2025
-              <em class="text-xs">(Illustrative)</em>
+              Technology Landscape Overview
+              <i class="text-sm text-gray-600">(Illustrative)</i>
             </h3>
             <div class="chart-container">
               <canvas id="marketShareChart"></canvas>
             </div>
             <p class="mt-4 text-center text-sm">
-              Redis-based solutions (incl. BullMQ) lead for general job queuing
-              (35%), Kafka dominates event streaming (30%), RabbitMQ holds
-              strong in enterprise messaging (20%), and Cloud-native queues
-              (SQS, etc.) capture 15%.
+              <strong>Kafka</strong> leads event streaming.
+              <strong>RabbitMQ</strong> is strong for enterprise messaging.
+              <strong>Redis/BullMQ</strong> is popular for job queues.
+              <strong>Cloud-native queues</strong> (SQS, Pub/Sub) are rapidly
+              growing.
             </p>
           </div>
           <div class="bg-white rounded-lg shadow-md p-6">
@@ -1423,18 +1468,58 @@ publishMessage().catch(console.error);
               class="text-xl font-semibold text-neutral-dark mb-3 text-center"
             >
               Developer Adoption Trends
-              <em class="text-xs">(Illustrative)</em>
+              <i class="text-sm text-gray-600">(Illustrative)</i>
             </h3>
             <div class="chart-container">
               <canvas id="adoptionTrendsChart"></canvas>
             </div>
             <p class="mt-4 text-center text-sm">
-              Developer interest is high across platforms, with significant
-              evaluation of Kafka for streaming and BullMQ for Node.js tasks.
-              Cloud queues see steady adoption due to ease of use.
+              Kafka leads for streaming; managed cloud queues are rising fast
+              for ease of use. Choice depends on ecosystem and project needs.
             </p>
           </div>
         </div>
+        <p class="source-text text-left mt-4 text-gray-600">
+          <i>Disclaimer:</i> Technology adoption insights are illustrative.
+          General trends are derived from industry analyses, developer surveys,
+          and platform reports by sources like:
+          <a
+            href="https://www.confluent.io/resources/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Confluent (for Kafka)</a
+          >,
+          <a
+            href="https://www.rabbitmq.com/news/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >RabbitMQ Community/VMware</a
+          >,
+          <a
+            href="https://redis.io/community/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Redis Community</a
+          >,
+          <a
+            href="https://aws.amazon.com/sqs/resources/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >AWS SQS Resources</a
+          >,
+          <a
+            href="https://cloud.google.com/pubsub/docs/overview"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Google Cloud Pub/Sub Docs</a
+          >,
+          <a
+            href="https://www.crn.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >CRN</a
+          >, and various developer community surveys.
+        </p>
       </section>
 
       <section id="section-use-cases" class="hidden mb-12">
@@ -1446,30 +1531,30 @@ publishMessage().catch(console.error);
         <p class="text-center max-w-4xl mx-auto mb-12">
           Background queues are versatile, finding applications across numerous
           domains and industries. Their ability to manage workloads efficiently
-          makes them invaluable for a wide array of tasks.
+          makes them invaluable for a wide array of tasks, as confirmed by
+          ongoing industry adoption in 2024-2025.
         </p>
         <div class="grid lg:grid-cols-2 gap-6">
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3
               class="text-xl font-semibold text-neutral-dark mb-3 text-center"
             >
-              Top Use Cases
-              <em class="text-xs">(Illustrative Importance Score)</em>
+              Top Use Cases <i class="text-sm text-gray-600">(Illustrative)</i>
             </h3>
             <div class="chart-container h-[400px] md:h-[450px]">
               <canvas id="topUseCasesChart"></canvas>
             </div>
             <p class="mt-4 text-center text-sm">
-              Asynchronous API processing and real-time notifications are highly
-              prevalent, followed by batch data operations and microservice
-              communication.
+              Async APIs, notifications, batch jobs, and microservice comm. lead
+              use cases. Event streaming and IoT are fast-growing.
             </p>
           </div>
           <div class="bg-white rounded-lg shadow-md p-6">
             <h3
               class="text-xl font-semibold text-neutral-dark mb-3 text-center"
             >
-              Adoption by Industry <em class="text-xs">(Illustrative)</em>
+              Adoption by Industry
+              <i class="text-sm text-gray-600">(Illustrative)</i>
             </h3>
             <div class="overflow-x-auto">
               <table class="min-w-full divide-y divide-gray-200">
@@ -1485,7 +1570,7 @@ publishMessage().catch(console.error);
                       scope="col"
                       class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Adoption Level
+                      Adoption Level (General Trend)
                     </th>
                     <th
                       scope="col"
@@ -1506,8 +1591,9 @@ publishMessage().catch(console.error);
                         >High</span
                       >
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      Order processing, notifications, inventory updates
+                    <td class="px-6 py-4 whitespace-normal">
+                      Order processing, notifications, inventory, real-time
+                      personalization
                     </td>
                   </tr>
                   <tr>
@@ -1520,8 +1606,9 @@ publishMessage().catch(console.error);
                         >High</span
                       >
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      Background jobs, email, reporting, webhooks
+                    <td class="px-6 py-4 whitespace-normal">
+                      Background jobs, email, reporting, webhooks, microservice
+                      decoupling
                     </td>
                   </tr>
                   <tr>
@@ -1531,23 +1618,12 @@ publishMessage().catch(console.error);
                     <td class="px-6 py-4 whitespace-nowrap">
                       <span
                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
-                        >Medium</span
+                        >High & Growing</span
                       >
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      Transaction processing, fraud detection, compliance
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap font-medium">IoT</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
-                        >Medium</span
-                      >
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      Device data ingestion, real-time alerts, analytics
+                    <td class="px-6 py-4 whitespace-normal">
+                      Transaction processing, fraud detection, market data
+                      streaming, compliance
                     </td>
                   </tr>
                   <tr>
@@ -1556,24 +1632,54 @@ publishMessage().catch(console.error);
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <span
-                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800"
-                        >Low-Medium</span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800"
+                        >Medium & Growing</span
                       >
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      Data synchronization, report generation, patient alerts
+                    <td class="px-6 py-4 whitespace-normal">
+                      Data synchronization, EMR/EHR updates, patient alerts, lab
+                      result processing
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p class="mt-4 text-center text-sm">
-              E-commerce and SaaS industries show high adoption, leveraging
-              queues for scalability and user experience. FinTech and IoT are
-              rapidly increasing usage.
+              E-commerce and SaaS industries show continued high adoption.
+              FinTech and IoT are rapidly increasing usage due to real-time data
+              and scalability needs.
             </p>
           </div>
         </div>
+        <p class="source-text text-left mt-4 text-gray-600">
+          <i>Disclaimer:</i> Use case and industry adoption descriptions are
+          illustrative. General insights are derived from various market
+          analyses and technology adoption reports such as those by
+          <a
+            href="https://www.gartner.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Gartner</a
+          >,
+          <a
+            href="https://www.forrester.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Forrester</a
+          >,
+          <a
+            href="https://www.globenewswire.com/search/keyword/message%20queue"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GlobeNewswire (for press releases on market reports)</a
+          >, and
+          <a
+            href="https://www.businesswire.com/portal/site/home/search/?searchType=all&searchTerm=message+queue+market"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Business Wire (for market report summaries)</a
+          >. Consult specific industry reports for detailed data.
+        </p>
       </section>
 
       <section id="section-swot" class="hidden mb-12">
@@ -1600,6 +1706,7 @@ publishMessage().catch(console.error);
               <li>Application Decoupling</li>
               <li>Better User Experience (Performance)</li>
               <li>Load Balancing Capabilities</li>
+              <li>Fault Tolerance & Retries</li>
             </ul>
           </div>
           <div
@@ -1612,7 +1719,8 @@ publishMessage().catch(console.error);
               <li>Increased Complexity (Setup & Maint.)</li>
               <li>Potential for Message Loss (If misconfigured)</li>
               <li>Debugging Challenges in Distributed Systems</li>
-              <li>Latency for Asynchronous Tasks</li>
+              <li>Latency for Asynchronous Tasks (by nature)</li>
+              <li>Monitoring Overhead</li>
             </ul>
           </div>
           <div
@@ -1622,11 +1730,11 @@ publishMessage().catch(console.error);
               Opportunities 🚀
             </h3>
             <ul class="list-disc list-inside text-sm space-y-1">
-              <li>Growth in Serverless Architectures</li>
+              <li>Growth in Serverless & Edge Architectures</li>
               <li>Integration with AI/ML Workflows</li>
-              <li>Adoption in Edge Computing</li>
               <li>Advanced Observability & AIOps</li>
-              <li>Standardization of Protocols</li>
+              <li>Standardization of Protocols (e.g. CloudEvents)</li>
+              <li>Real-time Data Analytics Expansion</li>
             </ul>
           </div>
           <div
@@ -1636,8 +1744,9 @@ publishMessage().catch(console.error);
             <ul class="list-disc list-inside text-sm space-y-1">
               <li>Vendor Lock-in (Cloud-specific queues)</li>
               <li>Emergence of Simpler Niche Alternatives</li>
-              <li>Security Vulnerabilities</li>
-              <li>Operational Overhead for Self-hosted</li>
+              <li>Security Vulnerabilities in complex systems</li>
+              <li>Operational Cost for Self-hosted at scale</li>
+              <li>Skills Gap for complex platforms</li>
             </ul>
           </div>
         </div>
@@ -1669,7 +1778,8 @@ publishMessage().catch(console.error);
             <p class="text-sm">
               Growing preference for fully managed services (like SQS, Google
               Pub/Sub, Azure Queues) that reduce operational burden and offer
-              auto-scaling capabilities.
+              auto-scaling capabilities, integrating deeply with serverless
+              compute.
             </p>
           </div>
           <div class="bg-white rounded-lg shadow-md p-6 text-center">
@@ -1680,7 +1790,7 @@ publishMessage().catch(console.error);
             <p class="text-sm">
               Queues are playing a vital role in distributing and managing
               computationally intensive AI/ML model training and inference tasks
-              across distributed systems.
+              across distributed systems, and for MLOps pipelines.
             </p>
           </div>
           <div class="bg-white rounded-lg shadow-md p-6 text-center">
@@ -1691,7 +1801,7 @@ publishMessage().catch(console.error);
             <p class="text-sm">
               Demand for smarter monitoring, predictive scaling, automated issue
               resolution, and deeper insights into queue performance and
-              behavior using AI for IT Operations.
+              behavior using AI for IT Operations (AIOps).
             </p>
           </div>
         </div>
@@ -1828,16 +1938,16 @@ publishMessage().catch(console.error);
        * This function is called when a chart-containing section becomes visible.
        */
       function renderCharts() {
-        // Market Size Chart (Donut)
+        // Market Size Chart (Donut) - TUpdated to reflect a single sourced value
         initializeChart(
           'marketSizeChart',
           'doughnut',
           {
-            labels: ['Background Queues & Messaging Market'],
+            labels: ['Message Queue Software Market 2024'],
             datasets: [
               {
-                label: 'Market Size 2025 ($ Billion)',
-                data: [15], // Illustrative
+                label: 'Market Size ($ Billion)',
+                data: [0.41], // Sourced info (e.g., Business Research Insights for MQ Software 2024)
                 backgroundColor: [secondaryColor],
                 borderColor: [primaryColor],
                 borderWidth: 1,
@@ -1851,7 +1961,7 @@ publishMessage().catch(console.error);
               legend: { display: false },
               title: {
                 display: true,
-                text: '$15 Billion (Illustrative)',
+                text: '$0.41 Billion (Illustrative 2024)',
                 font: { size: 18, weight: 'bold' },
                 color: neutralDarkColor,
                 position: 'bottom',
@@ -1861,16 +1971,16 @@ publishMessage().catch(console.error);
           },
         );
 
-        // Market Growth Chart (Line)
+        // Market Growth Chart (Line) with Event Stream Processing data
         initializeChart(
           'marketGrowthChart',
           'line',
           {
-            labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+            labels: ['2024', '2025', '2026', '2027', '2028', '2029'],
             datasets: [
               {
-                label: 'Projected Market Size ($ Billion)',
-                data: [15, 17, 19.5, 22, 25, 28], // Illustrative
+                label: 'Event Stream Processing Market ($ Billion)',
+                data: [1.45, 1.72, 2.04, 2.42, 2.87, 3.38], // Sourced trend (The Business Research Company)
                 borderColor: secondaryColor,
                 backgroundColor: 'rgba(6, 214, 160, 0.1)',
                 fill: true,
@@ -1883,10 +1993,10 @@ publishMessage().catch(console.error);
             maintainAspectRatio: false,
             scales: {
               y: {
-                beginAtZero: true,
+                beginAtZero: false, // Adjusted as market doesn't start at 0
                 ticks: {
                   callback: function (value) {
-                    return '$' + value + 'B';
+                    return '$' + value.toFixed(2) + 'B';
                   },
                 },
               },
@@ -1898,21 +2008,21 @@ publishMessage().catch(console.error);
           },
         );
 
-        // Market Share Chart (Pie)
+        // Market Share Chart (Pie) - Kept visually illustrative, text updated in HTML
         initializeChart(
           'marketShareChart',
           'pie',
           {
             labels: processLabels([
-              'Redis-based (BullMQ)',
-              'Apache Kafka',
-              'RabbitMQ',
-              'Cloud (SQS, etc.)',
+              'Kafka', // Event Streaming
+              'RabbitMQ', // Enterprise Messaging
+              'Cloud', // Cloud-Native Queues (SQS, Pub/Sub)
+              'BullMQ', // Job Queues (Redis-based)
             ]),
             datasets: [
               {
-                label: 'Market Share %',
-                data: [35, 30, 20, 15], // Illustrative
+                label: 'Technology Segment Focus',
+                data: [35, 25, 25, 15],
                 backgroundColor: [
                   primaryColor,
                   secondaryColor,
@@ -1933,31 +2043,32 @@ publishMessage().catch(console.error);
           },
         );
 
-        // Adoption Trends Chart (Stacked Bar)
+        // Adoption Trends Chart (Stacked Bar) - Kept visually illustrative, text updated in HTML
         initializeChart(
           'adoptionTrendsChart',
           'bar',
           {
             labels: processLabels([
-              'Redis-based',
-              'Kafka',
-              'RabbitMQ',
-              'Cloud Queues',
+              'Event Streaming Platforms',
+              'Message Brokers',
+              'Cloud-Native Queues',
+              'Job Queues',
             ]),
             datasets: [
+              // Illustrative data for visual representation
               {
-                label: 'Using',
-                data: [60, 50, 45, 55], // Illustrative
+                label: 'High Adoption',
+                data: [60, 50, 55, 45],
                 backgroundColor: primaryColor,
               },
               {
-                label: 'Evaluating',
-                data: [20, 30, 25, 20], // Illustrative
+                label: 'Evaluating/Growing Interest',
+                data: [25, 20, 30, 30],
                 backgroundColor: secondaryColor,
               },
               {
                 label: 'Planning to Use',
-                data: [10, 15, 10, 15], // Illustrative
+                data: [15, 10, 15, 10],
                 backgroundColor: accent1Color,
               },
             ],
@@ -1997,11 +2108,12 @@ publishMessage().catch(console.error);
               'Microservice Communication',
               'Event Streaming & Analytics',
               'Scheduled & Delayed Tasks',
+              'IoT Data Ingestion',
             ]),
             datasets: [
               {
-                label: 'Importance Score (Illustrative)',
-                data: [90, 85, 80, 75, 70, 65], // Illustrative
+                label: 'Importance Score',
+                data: [90, 88, 85, 82, 80, 75, 78], // Illustrative
                 backgroundColor: [
                   primaryColor,
                   secondaryColor,
@@ -2009,6 +2121,7 @@ publishMessage().catch(console.error);
                   accent2Color,
                   '#4A5568', // A darker gray
                   '#718096', // A lighter gray
+                  '#073b4c', // Dark Slate
                 ],
                 borderColor: neutralDarkColor,
                 borderWidth: 1,
@@ -2040,8 +2153,8 @@ publishMessage().catch(console.error);
         const sectionOrder = [
           'section-overview',
           'section-agenda',
-          'section-what-how',
           'section-question-1',
+          'section-what-how',
           'section-why-when',
           'section-common-tools',
           'section-tool-comparisons',
@@ -2049,6 +2162,7 @@ publishMessage().catch(console.error);
           'section-real-world-patterns',
           'section-scaling-security-observability',
           'section-live-demo',
+          'section-question-3',
           'section-market-landscape',
           'section-key-tech',
           'section-use-cases',
@@ -2066,16 +2180,38 @@ publishMessage().catch(console.error);
         function showSection(sectionId) {
           sections.forEach((section) => {
             section.classList.add('hidden'); // Use Tailwind's hidden class
+            section.classList.remove('flex'); // Ensure flex is removed if it was conditionally added for centering
           });
           const targetSection = document.getElementById(sectionId);
           if (targetSection) {
             targetSection.classList.remove('hidden');
-            // Scroll to the top of the newly displayed section
+            // Conditionally add flex for centering to specific sections if needed
+            if (
+              [
+                'section-overview',
+                'section-question-1',
+                'section-question-2',
+                'section-question-3',
+                'section-live-demo',
+                'section-thank-you',
+              ].includes(sectionId)
+            ) {
+              targetSection.classList.add('flex');
+            }
             contentMain.scrollTop = 0;
-            renderCharts(); // Re-render charts when their section becomes visible
+
+            // Only render charts if the section is one that contains charts
+            if (
+              [
+                'section-market-landscape',
+                'section-key-tech',
+                'section-use-cases',
+              ].includes(sectionId)
+            ) {
+              setTimeout(renderCharts, 50); // Slight delay to ensure section is visible for chart rendering
+            }
           }
 
-          // Update Previous/Next button states based on current section index
           currentSectionIndex = sectionOrder.indexOf(sectionId);
           prevSectionBtn.style.display =
             currentSectionIndex === 0 ? 'none' : 'inline-block';
@@ -2084,59 +2220,49 @@ publishMessage().catch(console.error);
               ? 'none'
               : 'inline-block';
 
-          // Update URL query parameter to reflect the current section
           const url = new URL(window.location.href);
           url.searchParams.set('section', sectionId);
           window.history.replaceState(null, '', url.toString());
         }
 
-        // Handle navigation button clicks (agenda links)
         document
           .querySelectorAll('#section-agenda button[data-section]')
           .forEach((button) => {
             button.addEventListener('click', (event) => {
-              event.preventDefault(); // Prevent default link behavior for agenda items
+              event.preventDefault();
               const sectionId = button.dataset.section;
               showSection(sectionId);
             });
           });
 
-        // Handle Previous button click
         prevSectionBtn.addEventListener('click', () => {
           if (currentSectionIndex > 0) {
             showSection(sectionOrder[currentSectionIndex - 1]);
           }
         });
 
-        // Handle Next button click
         nextSectionBtn.addEventListener('click', () => {
           if (currentSectionIndex < sectionOrder.length - 1) {
             showSection(sectionOrder[currentSectionIndex + 1]);
           }
         });
 
-        // Add keyboard navigation for left, right, up, and down arrow keys
         document.addEventListener('keydown', (event) => {
           if (event.key === 'ArrowLeft') {
-            // If left arrow key is pressed
-            event.preventDefault(); // Prevent default browser scrolling
-            prevSectionBtn.click(); // Simulate a click on the previous button
+            event.preventDefault();
+            prevSectionBtn.click();
           } else if (event.key === 'ArrowRight') {
-            // If right arrow key is pressed
-            event.preventDefault(); // Prevent default browser scrolling
-            nextSectionBtn.click(); // Simulate a click on the next button
+            event.preventDefault();
+            nextSectionBtn.click();
           } else if (event.key === 'ArrowUp') {
-            // If up arrow key is pressed, scroll up within the current section
             event.preventDefault();
-            contentMain.scrollBy({ top: -100, behavior: 'smooth' }); // Scroll up by 100px
+            contentMain.scrollBy({ top: -100, behavior: 'smooth' });
           } else if (event.key === 'ArrowDown') {
-            // If down arrow key is pressed, scroll down within the current section
             event.preventDefault();
-            contentMain.scrollBy({ top: 100, behavior: 'smooth' }); // Scroll down by 100px
+            contentMain.scrollBy({ top: 100, behavior: 'smooth' });
           }
         });
 
-        // Show the initial section (Overview) on load, checking URL first
         const urlParams = new URLSearchParams(window.location.search);
         const sectionFromUrl = urlParams.get('section');
         const initialSection =
@@ -2146,15 +2272,24 @@ publishMessage().catch(console.error);
         showSection(initialSection);
       });
 
-      // Ensure charts re-render on window resize if needed (Chart.js responsive handles most cases)
+      let resizeTimeout;
       window.addEventListener('resize', () => {
-        // This will re-initialize charts if the active section is visible
-        const activeSectionId = document.querySelector(
-          'main section:not(.hidden)',
-        )?.id; // Get the ID of the currently visible section
-        if (activeSectionId) {
-          renderCharts();
-        }
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const activeSection = document.querySelector(
+            'main section:not(.hidden)',
+          );
+          if (
+            activeSection &&
+            [
+              'section-market-landscape',
+              'section-key-tech',
+              'section-use-cases',
+            ].includes(activeSection.id)
+          ) {
+            renderCharts();
+          }
+        }, 250);
       });
     </script>
   </body>
